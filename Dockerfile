@@ -8,11 +8,8 @@ ENV FLY_APP_NAME=orlandoflores
 # Copiar archivos de dependencias
 COPY package*.json ./
 
-# Instalar dependencias
-RUN npm ci
-
-# Instalar terser (requerido para la minificación)
-RUN npm install -D terser
+# Instalar dependencias (usamos install en lugar de ci para permitir actualizaciones del package-lock.json)
+RUN npm install
 
 # Copiar código fuente
 COPY . .
