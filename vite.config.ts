@@ -6,34 +6,41 @@ import fs from 'fs'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 import compression from 'vite-plugin-compression2'
 
+// Verificar si estamos en un entorno CI/CD (como Fly.io)
+const isCI = process.env.CI === 'true' || process.env.FLY_APP_NAME !== undefined;
+
 // ¡La biblia de Vite po! Léela como si fuera el Copihue de los feriados 📚
 export default defineConfig({
   plugins: [
     react(), 
     tailwindcss(),
-    ViteImageOptimizer({
-      png: {
-        quality: 70,
-        compressionLevel: 9,
-      },
-      jpeg: {
-        quality: 70,
-      },
-      jpg: {
-        quality: 70,
-      },
-      webp: {
-        lossless: false,
-        quality: 80,
-      },
-      avif: {
-        lossless: false,
-        quality: 80,
-      },
-      cache: true,
-      includePublic: true,
-      test: /\.(jpe?g|png|gif|webp|svg)$/i,
-    }),
+    // Solo usamos el optimizador de imágenes en desarrollo local
+    ...(!isCI ? [
+      ViteImageOptimizer({
+        png: {
+          quality: 70,
+          compressionLevel: 9,
+        },
+        jpeg: {
+          quality: 70,
+        },
+        jpg: {
+          quality: 70,
+        },
+        webp: {
+          lossless: false,
+          quality: 80,
+        },
+        avif: {
+          lossless: false,
+          quality: 80,
+        },
+        cache: true,
+        cacheLocation: path.resolve(__dirname, 'node_modules/.vite/image-optimizer-cache'),
+        includePublic: true,
+        test: /\.(jpe?g|png|gif|webp|svg)$/i,
+      })
+    ] : []),
     // ¡Compresor GZIP po! Aplastando bytes como sopaipillas en invierno 🥟
     compression({
       algorithm: 'gzip',

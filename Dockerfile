@@ -2,6 +2,9 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
+# Establecer variable de entorno para indicar que estamos en Fly.io
+ENV FLY_APP_NAME=orlandoflores
+
 # Copiar archivos de dependencias
 COPY package*.json ./
 
@@ -10,6 +13,11 @@ RUN npm ci
 
 # Copiar código fuente
 COPY . .
+
+# Pre-optimizar imágenes con sharp (alternativa a vite-plugin-image-optimizer)
+RUN npm install -g sharp-cli
+RUN find public -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) -exec sh -c 'sharp -i "$1" -o "${1%.png}.opt.png" --quality 70' sh {} \;
+RUN find public -type f -name "*.opt.png" -exec sh -c 'mv "$1" "${1%.opt.png}.png"' sh {} \;
 
 # Generar build
 RUN npm run build
