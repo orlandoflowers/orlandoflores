@@ -46,9 +46,15 @@ export function Hero() {
 
     // ¡Tirando confeti po! Porque un clic sin confeti es como un completo sin palta 🎉
     confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 }
+      particleCount: 200,
+      spread: 180,
+      angle: 90,
+      origin: { y: 0.6 },
+      gravity: 0.4,
+      decay: 0.94,
+      startVelocity: 30,
+      scalar: 1.2,
+      ticks: 600,
     });
 
     // ¡Correo al vuelo! Ojalá no caiga en spam o estamos fritos 🤞
@@ -60,7 +66,7 @@ export function Hero() {
       ? t("email.bodyWithSkill", { skill: selectedSkills[0] })
       : t("email.body");
 
-    window.location.href = `mailto:of@orlandflores.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:of@orlandoflores.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const handleSkillClick = (skill: string) => {

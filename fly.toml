@@ -1,4 +1,4 @@
-app = "orlando-portfolio"
+app = "orlandoflores"
 primary_region = "scl"  # Santiago, Chile
 
 [build]

@@ -24,9 +24,9 @@
     "fr": "Français"
   },
   "email": {
-    "subject": "Demande de Portfolio",
-    "subjectWithSkill": "Intérêt pour les opportunités en {{skill}}",
-    "body": "Bonjour Orlando,\n\nJ'ai découvert votre portfolio et j'aimerais échanger avec vous.\n\nCordialement,",
-    "bodyWithSkill": "Bonjour Orlando,\n\nJe suis intéressé à discuter des opportunités en {{skill}} avec vous.\n\nCordialement,"
+    "subject": "Demande de Design",
+    "subjectWithSkill": "Intérêt pour les travaux de {{skill}}",
+    "body": "Bonjour Orlando,\n\nJ'ai découvert votre web et j'aimerais échanger avec vous.\n\nCordialement,",
+    "bodyWithSkill": "Bonjour Orlando,\n\nJe suis intéressé à discuter des travaux de {{skill}} avec vous.\n\nCordialement,"
   }
 } 

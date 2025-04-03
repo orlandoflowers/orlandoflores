@@ -26,9 +26,9 @@
     "fr": "French"
   },
   "email": {
-    "subject": "Portfolio Inquiry",
+    "subject": "Design Inquiry",
     "subjectWithSkill": "Interest in {{skill}} opportunities",
-    "body": "Hi Orlando,\n\nI came across your portfolio and ... \n\nBest regards,",
+    "body": "Hi Orlando,\n\nI came across your web and ... \n\nBest regards,",
     "bodyWithSkill": "Hi Orlando,\n\nI'm interested in discussing {{skill}}... \n\nBest regards,"
   }
 } 
