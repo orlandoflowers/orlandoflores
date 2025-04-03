@@ -26,9 +26,9 @@
     "fr": "Francés"
   },
   "email": {
-    "subject": "Consulta de Portafolio",
-    "subjectWithSkill": "Interés en oportunidades de {{skill}}",
-    "body": "Hola Orlando,\n\nHe visto tu portafolio y me gustaría ...\n\nSaludos cordiales,",
+    "subject": "Consulta de Trabajo",
+    "subjectWithSkill": "Interés en proyecto de {{skill}}",
+    "body": "Hola Orlando,\n\nHe visto tu web y me gustaría que me puedas ayudar con ...\n\nSaludos cordiales,",
     "bodyWithSkill": "Hola Orlando,\n\nEstoy interesado en ....\n\nSaludos cordiales,"
   }
 } 

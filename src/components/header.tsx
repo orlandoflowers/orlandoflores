@@ -38,7 +38,7 @@ export function Header() {
       ? t("email.bodyWithSkill", { skill: selectedSkills[0] })
       : t("email.body")
 
-    window.location.href = `mailto:orlandoflores.dev@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = `mailto:of@orlandoflores.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
   }
 
   return (
