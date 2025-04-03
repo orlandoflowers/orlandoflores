@@ -70,7 +70,7 @@ export default defineConfig({
   },
   build: {
     // ¡Pasando JavaScript por la juguera! Queda más molido que palta pal pan 🥤
-    minify: 'terser',
+    minify: process.env.FLY_APP_NAME ? 'esbuild' : 'terser', // Usar esbuild en Fly.io si terser falla
     terserOptions: {
       compress: {
         drop_console: true,
