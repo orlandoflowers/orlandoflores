@@ -32,8 +32,7 @@ export function ThemeProvider({
 
   useEffect(() => {
     const root = window.document.documentElement
-    const header = window.document.querySelector('header')
-
+    
     root.classList.remove("light", "dark")
 
     if (theme === "system") {
