@@ -1,0 +1,34 @@
+{
+  "header": {
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "",
+    "name": "",
+    "description": "Soy Product Designer en AudienceView, trabajando para Spotlight.",
+    "contactButton": "Contáctame",
+    "contactHover": "Contáctame ahora 🚀",
+    "contactWithSkill": "Hablemos sobre {{skill}}",
+    "contactHelp": "Si necesitas, puedo ayudarte con:"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "period": "{{startDate}} - {{endDate}}",
+    "present": "Presente",
+    "location": "{{city}}, {{country}}"
+  },
+  "footer": {
+    "copyright": "© 2025 Orlando Flores. Interesado en colaborar? Hablemos! | Buscas un desarrollador? También puedo ayudarte, sé programar e implementar!"
+  },
+  "language": {
+    "en": "Inglés",
+    "es": "Español",
+    "fr": "Francés"
+  },
+  "email": {
+    "subject": "Consulta de Portafolio",
+    "subjectWithSkill": "Interés en oportunidades de {{skill}}",
+    "body": "Hola Orlando,\n\nHe visto tu portafolio y me gustaría ...\n\nSaludos cordiales,",
+    "bodyWithSkill": "Hola Orlando,\n\nEstoy interesado en ....\n\nSaludos cordiales,"
+  }
+} 

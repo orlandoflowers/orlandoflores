@@ -1,0 +1,34 @@
+{
+  "header": {
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "",
+    "name": "",
+    "description": "I’m a Product Designer at AudienceView, working for Spotlight.",
+    "contactButton": "Contact me",
+    "contactHover": "Contact me now!",
+    "contactWithSkill": "Let's talk about {{skill}}",
+    "contactHelp": "If you need, I can help you with:"
+  },
+  "experience": {
+    "title": "Experience",
+    "period": "{{startDate}} - {{endDate}}",
+    "present": "Present",
+    "location": "{{city}}, {{country}}"
+  },
+  "footer": {
+    "copyright": "© 2025 Orlando Flores. All rights reserved. Interested in collaborating? Let's talk! | Looking for a developer? I can help you, I'm a developer too!"
+  },
+  "language": {
+    "en": "English",
+    "es": "Spanish",
+    "fr": "French"
+  },
+  "email": {
+    "subject": "Portfolio Inquiry",
+    "subjectWithSkill": "Interest in {{skill}} opportunities",
+    "body": "Hi Orlando,\n\nI came across your portfolio and ... \n\nBest regards,",
+    "bodyWithSkill": "Hi Orlando,\n\nI'm interested in discussing {{skill}}... \n\nBest regards,"
+  }
+} 

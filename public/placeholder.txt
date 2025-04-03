@@ -1,0 +1,2 @@
+This directory will contain the profile image named 'profile.jpg'.
+Please add your profile image here before running the site. 
