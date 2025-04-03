@@ -96,9 +96,14 @@ export default defineConfig({
         // Estrategia de división cuática - como cortar la torta pa' que alcance pa' todos 🍰
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            // Creando chunks por paquete - como tener la feria pero en carpetas ordenaditas 🏪
+            // React y sus componentes principales deben estar en el mismo chunk
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor.react';
+            }
+            
+            // Crear un chunk por cada paquete principal - como tener la feria pero en carpetas ordenaditas 🏪
             const packageName = id.toString().split('node_modules/')[1].split('/')[0].toString();
-            if (['react', 'react-dom', 'i18next', 'react-i18next', 'lucide-react', 'swiper'].includes(packageName)) {
+            if (['i18next', 'react-i18next', 'lucide-react', 'swiper'].includes(packageName)) {
               return `vendor.${packageName}`;
             }
             // Agrupando paquetes chicos - como juntar las chauchas en la alcancía 🐷
