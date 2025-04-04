@@ -15,7 +15,7 @@ export function Hero() {
   // Imagen de perfil po, más importante que el primer copete del viernes 🍺
   useEffect(() => {
     const imgProfile = new Image();
-    imgProfile.src = '/profile.png';
+    imgProfile.src = '/profile.webp';
     imgProfile.fetchPriority = 'high';
     imgProfile.onload = () => {
       // ¡Wena CTM! Ya cargó la foto - Google nos va a dar la estrellita de oro 🏆
@@ -23,7 +23,7 @@ export function Hero() {
     
     // La otra imagen: prioridad baja (como cuando deci "mañana hago ejercicio" pero sabí que no) 🏃‍♂️
     const imgPortfolio = new Image();
-    imgPortfolio.src = '/portfolio.png';
+    imgPortfolio.src = '/portfolio.webp';
     imgPortfolio.fetchPriority = 'low';
   }, []);
 
@@ -85,7 +85,7 @@ export function Hero() {
               style={{ contain: 'layout paint' }}
             >
               <img 
-                src="/profile.png" 
+                src="/profile.webp" 
                 alt="Orlando Flores"
                 width="192" 
                 height="192"
@@ -138,7 +138,7 @@ export function Hero() {
         </div>
         <div className="rounded-2xl hidden md:block overflow-hidden transition-all duration-700 ease-in-out h-[550px] w-[400px]" style={{ contain: 'layout paint' }}>
           <img 
-            src="/portfolio.png" 
+            src="/portfolio.webp" 
             alt="Portfolio item"
             width="400" 
             height="550"

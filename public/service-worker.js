@@ -5,8 +5,8 @@ const CACHE_NAME = 'portfolio-cache-v1';
 const CACHE_ASSETS = [
   '/',
   '/index.html',
-  '/profile.png',
-  '/portfolio.png',
+  '/profile.webp',
+  '/portfolio.webp',
   '/android-chrome-192x192.png',
   '/android-chrome-512x512.png',
   '/apple-touch-icon.png',
