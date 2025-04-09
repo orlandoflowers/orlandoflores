@@ -11,6 +11,11 @@ const isCI = process.env.CI === 'true' || process.env.FLY_APP_NAME !== undefined
 
 // ¡La biblia de Vite po! Léela como si fuera el Copihue de los feriados 📚
 export default defineConfig({
+  server: {
+    host: '0.0.0.0',
+    port: 8080,
+    strictPort: true,
+  },
   plugins: [
     react(), 
     tailwindcss(),
