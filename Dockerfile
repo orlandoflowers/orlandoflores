@@ -34,5 +34,8 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 # Exponer puerto
 EXPOSE 8080
 
+# Asegurarse de que nginx esté instalado y en el PATH
+RUN which nginx
+
 # Comando para iniciar nginx
-CMD ["nginx", "-g", "daemon off;"] 
+ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"] 
