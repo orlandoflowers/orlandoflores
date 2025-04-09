@@ -25,4 +25,47 @@ primary_region = "scl"  # Santiago, Chile
     type = "tcp"
     interval = "15s"
     timeout = "2s"
-    grace_period = "5s" 
+    grace_period = "5s"
+
+[services]
+  [[services.http_checks]]
+    grace_period = "10s"
+    interval = "30s"
+    method = "GET"
+    path = "/"
+    protocol = "http"
+    timeout = "5s"
+    tls_skip_verify = false
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+[metrics]
+  port = 8080
+  path = "/metrics"
+
+[deploy]
+  strategy = "rolling"
+
+[processes]
+  app = "npm run start"
+
+[experimental]
+  auto_rollback = true
+
+[scale]
+  min = 1
+  max = 1
+  memory = "256mb"
+  cpu = "shared"
+  concurrency = 25
+  hard_limit = 100
+  soft_limit = 50
+  force_https = true
+  auto_stop_machines = false 
