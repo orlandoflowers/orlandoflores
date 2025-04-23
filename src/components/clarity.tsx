@@ -15,7 +15,6 @@ export function ClarityAnalytics() {
   
     document.head.appendChild(script);
   
-    // ¡Activando el sapeo de Microsoft! A Google le gusta competir con los cabros chicos 🕵️‍♂️
   }, []);
   
   return null;

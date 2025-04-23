@@ -1,10 +1,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper/modules'
-// @ts-ignore - ¡Chis! TypeScript no cacha na' de CSS mágico, el pobre weon 🧙‍♂️
-import 'swiper/css'
-// @ts-ignore - TypeScript pregunta "¿Qué onda esta weá?" y nosotros "¡Ya córtala y compila no más!" 🙈
-import 'swiper/css/pagination'
+// Import Swiper styles in global CSS
 import { useTranslation } from "react-i18next"
 
 interface Experience {

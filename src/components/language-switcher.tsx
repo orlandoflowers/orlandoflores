@@ -7,7 +7,6 @@ export function LanguageSwitcher() {
   const [currentLangCode, setCurrentLangCode] = useState(i18n.language);
   const [isHovered, setIsHovered] = useState(false);
 
-  // ¡Sincronizando la weá! Como cuando tratai de bailar cueca pero tení dos pies izquierdos 🪗
   useEffect(() => {
     setCurrentLangCode(i18n.language);
   }, [i18n.language]);
@@ -34,9 +33,7 @@ export function LanguageSwitcher() {
     const nextIndex = (currentIndex + 1) % languages.length;
     const nextLangCode = languages[nextIndex].code;
     
-    // ¡Le hacemos la psicológica al cerebro! Cambiamos la weá antes que se dé cuenta 🧠
     setCurrentLangCode(nextLangCode);
-    // ¡Saltando entre idiomas po! Como pasar de flaite a cuico en un segundo 🚀
     i18n.changeLanguage(nextLangCode);
   };
   
