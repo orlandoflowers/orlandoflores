@@ -12,7 +12,7 @@ export function Footer() {
           {t('footer.copyright')}
         </p>
         <Button variant="ghost" size="icon" asChild>
-          <a href="https://linkedin.com/in/orlandoflores" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/orflores" target="_blank" rel="noopener noreferrer">
             <Linkedin className="h-5 w-5" />
             <span className="sr-only">LinkedIn</span>
           </a>
