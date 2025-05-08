@@ -17,8 +17,15 @@ RUN npm run build
 # Segunda etapa: solo los archivos estáticos
 FROM nginx:alpine
 
-# Copiar configuración de nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Crear directorio para templates
+RUN mkdir -p /etc/nginx/templates
+
+# Copiar configuración de nginx template
+COPY nginx.template.conf /etc/nginx/templates/
+
+# Copiar script de inicio
+COPY start.sh /docker-entrypoint.d/40-start.sh
+RUN chmod +x /docker-entrypoint.d/40-start.sh
 
 # Copiar archivos de build
 COPY --from=builder /app/dist /usr/share/nginx/html
