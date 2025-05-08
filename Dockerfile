@@ -23,8 +23,13 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Copiar archivos de build
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Exponer puerto
-EXPOSE 8080
+# Exponer puerto dinámico
+ENV PORT=8080
+EXPOSE ${PORT}
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+    CMD wget --no-verbose --tries=1 --spider http://localhost:${PORT}/ || exit 1
 
 # Iniciar nginx
 CMD ["nginx", "-g", "daemon off;"] 
