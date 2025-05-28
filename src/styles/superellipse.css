@@ -52,4 +52,67 @@
     min(30px, 5.45%) 
     min(30px, 5.45%) 
     min(30px, 5.45%);
+}
+
+/* Subtle pulsating button animation */
+@keyframes subtlePulse {
+  0% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+  }
+  25% {
+    transform: scale(1.02) rotate(0.5deg);
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+  }
+  50% {
+    transform: scale(1.03) rotate(-0.5deg);
+    box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.03);
+  }
+  75% {
+    transform: scale(1.02) rotate(0.3deg);
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+/* Dark mode version */
+@keyframes subtlePulseDark {
+  0% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1);
+  }
+  25% {
+    transform: scale(1.02) rotate(0.5deg);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+  }
+  50% {
+    transform: scale(1.03) rotate(-0.5deg);
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.03);
+  }
+  75% {
+    transform: scale(1.02) rotate(0.3deg);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+/* Apply animation class */
+.pulse-animation {
+  animation: subtlePulse 1.2s ease-in-out;
+}
+
+.dark .pulse-animation {
+  animation: subtlePulseDark 1.2s ease-in-out;
+}
+
+/* Ensure smooth transitions when not animating */
+.contact-button {
+  transition: all 0.2s ease-in-out;
+  transform-origin: center;
 } 

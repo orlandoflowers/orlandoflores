@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next"
 export function Hero() {
   const { selectedSkills, toggleSkill } = useSkills()
   const [isHovered, setIsHovered] = useState(false)
+  const [isPulsing, setIsPulsing] = useState(false)
   const { t } = useTranslation()
   
   // ¡Operación precarga! Pa' que la weá cargue raja antes que digan "oh, qué lenta la página" 🚀
@@ -26,6 +27,33 @@ export function Hero() {
     imgPortfolio.src = '/portfolio.webp';
     imgPortfolio.fetchPriority = 'low';
   }, []);
+
+  // ¡Animación sutil pa' llamar la atención! Como cuando te hacen guiño en la micro 😉
+  useEffect(() => {
+    const triggerRandomPulse = () => {
+      // Random interval between 3-8 seconds (3000-8000ms)
+      const randomDelay = Math.random() * 5000 + 3000;
+      
+      setTimeout(() => {
+        // Only pulse if not hovered (pa' no molestar al usuario)
+        if (!isHovered) {
+          setIsPulsing(true);
+          
+          // Remove the animation class after animation completes
+          setTimeout(() => {
+            setIsPulsing(false);
+          }, 1200); // Duration matches CSS animation
+        }
+        
+        // Schedule the next pulse
+        triggerRandomPulse();
+      }, randomDelay);
+    };
+
+    // Start the random pulse cycle after initial delay
+    const initialDelay = Math.random() * 3000 + 2000; // 2-5 seconds initial delay
+    setTimeout(triggerRandomPulse, initialDelay);
+  }, [isHovered]);
 
   const getButtonText = () => {
     if (selectedSkills.length === 0) {
@@ -126,7 +154,10 @@ export function Hero() {
               <Button
                 id="button-email-me"
                 data-umami-event="cta-email-me"
-                className="rounded-full px-6 w-full md:w-auto cursor-pointer text-sm md:text-base"
+                className={`
+                  rounded-full px-6 w-full md:w-auto cursor-pointer text-sm md:text-base contact-button
+                  ${isPulsing ? 'pulse-animation' : ''}
+                `}
                 onClick={handleEmailClick}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
