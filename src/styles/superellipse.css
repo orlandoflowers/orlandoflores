@@ -1,0 +1,55 @@
+/* Apple-style superellipse rounded corners */
+.superellipse-rounded {
+  /* Using clip-path to create the superellipse shape */
+  clip-path: path('M 0 40 C 0 18, 18 0, 40 0 L 360 0 C 382 0, 400 18, 400 40 L 400 510 C 400 532, 382 550, 360 550 L 40 550 C 18 550, 0 532, 0 510 Z');
+  
+  /* Fallback for browsers that don't support clip-path */
+  border-radius: 40px;
+  
+  /* Alternative approach using border-radius with smooth curves */
+  /* This creates a more organic Apple-like curve */
+  border-radius: 
+    min(40px, 10%) 
+    min(40px, 10%) 
+    min(40px, 10%) 
+    min(40px, 10%) / 
+    min(40px, 7.27%) 
+    min(40px, 7.27%) 
+    min(40px, 7.27%) 
+    min(40px, 7.27%);
+}
+
+/* For smaller screens, scale down the radius */
+@media (max-width: 768px) {
+  .superellipse-rounded {
+    clip-path: path('M 0 30 C 0 13.5, 13.5 0, 30 0 L 270 0 C 286.5 0, 300 13.5, 300 30 L 300 382.5 C 300 399, 286.5 412.5, 270 412.5 L 30 412.5 C 13.5 412.5, 0 399, 0 382.5 Z');
+    border-radius: 30px;
+    border-radius: 
+      min(30px, 10%) 
+      min(30px, 10%) 
+      min(30px, 10%) 
+      min(30px, 10%) / 
+      min(30px, 7.27%) 
+      min(30px, 7.27%) 
+      min(30px, 7.27%) 
+      min(30px, 7.27%);
+  }
+}
+
+/* Smooth transition support */
+.superellipse-rounded {
+  transition: clip-path 0.3s ease, border-radius 0.3s ease;
+}
+
+/* Alternative superellipse using CSS squircle approximation */
+.superellipse-rounded-alt {
+  border-radius: 
+    min(40px, 10%) 
+    min(40px, 10%) 
+    min(40px, 10%) 
+    min(40px, 10%) / 
+    min(30px, 5.45%) 
+    min(30px, 5.45%) 
+    min(30px, 5.45%) 
+    min(30px, 5.45%);
+} 

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import 'swiper/css/bundle';
+@import './styles/superellipse.css';
 
 @custom-variant dark (&:is(.dark *));
 

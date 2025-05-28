@@ -136,7 +136,7 @@ export function Hero() {
             </div>
           </div>
         </div>
-        <div className="rounded-2xl hidden md:block overflow-hidden transition-all duration-700 ease-in-out h-[550px] w-[400px]" style={{ contain: 'layout paint' }}>
+        <div className="superellipse-rounded hidden md:block overflow-hidden transition-all duration-700 ease-in-out h-[550px] w-[400px]" style={{ contain: 'layout paint' }}>
           <img 
             src="/portfolio.webp" 
             alt="Portfolio item"
