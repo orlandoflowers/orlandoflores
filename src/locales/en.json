@@ -5,7 +5,7 @@
   "hero": {
     "greeting": "",
     "name": "",
-    "description": "I’m a Product Designer at AudienceView, working for Spotlight.",
+    "description": "I’m a Product Designer at AudienceView, working for Unlimited.",
     "contactButton": "Contact me",
     "contactHover": "Contact me now!",
     "contactWithSkill": "Let's talk about {{skill}}",
