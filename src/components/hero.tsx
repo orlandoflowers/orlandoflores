@@ -109,7 +109,7 @@ export function Hero() {
         <div className="flex flex-col md:flex-row items-start md:items-start gap-6 md:gap-12 w-full md:w-auto">
           <div className="shrink-0">
             <div 
-              className="w-28 h-28 md:w-48 md:h-48 aspect-square overflow-hidden" 
+              className="w-28 h-28 md:w-48 md:h-48 aspect-square overflow-hidden profile-image-container" 
               style={{ contain: 'layout paint' }}
             >
               <img 
@@ -119,7 +119,7 @@ export function Hero() {
                 height="192"
                 fetchPriority="high"
                 loading="eager"
-                className="w-full h-full object-cover transition-all duration-300" 
+                className="w-full h-full object-cover transition-all duration-300 profile-image" 
               />
             </div>
           </div>

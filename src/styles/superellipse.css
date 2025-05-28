@@ -54,6 +54,36 @@
     min(30px, 5.45%);
 }
 
+/* Profile image hover animation */
+.profile-image-container {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center;
+  cursor: pointer;
+}
+
+.profile-image-container:hover {
+  transform: scale(1.08) rotate(2deg);
+}
+
+.profile-image-container:hover .profile-image {
+  transform: scale(1.02) rotate(-1deg);
+}
+
+.profile-image {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center;
+}
+
+/* Add a subtle shadow on hover */
+.profile-image-container:hover {
+  transform: scale(1.08) rotate(2deg);
+  filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.15));
+}
+
+.dark .profile-image-container:hover {
+  filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.3));
+}
+
 /* Subtle pulsating button animation */
 @keyframes subtlePulse {
   0% {
