@@ -7,8 +7,8 @@
     "name": "",
     "description": "I’m a Product Designer at AudienceView, working for Unlimited.",
     "contactButton": "Contact me",
-    "contactHover": "Contact me now!",
-    "contactWithSkill": "Let's talk about {{skill}}",
+    "contactHover": "Contact me now 🚀",
+    "contactWithSkill": "Contact me now about {{skill}}",
     "contactHelp": "If you need, I can help you with:"
   },
   "experience": {
@@ -30,5 +30,69 @@
     "subjectWithSkill": "Interest in {{skill}} opportunities",
     "body": "Hi Orlando,\n\nI came across your web and ... \n\nBest regards,",
     "bodyWithSkill": "Hi Orlando,\n\nI'm interested in discussing {{skill}}... \n\nBest regards,"
+  },
+  "designer": {
+    "title": "I'm a Designer",
+    "intro": "Design is my way of solving problems and creating experiences that truly matter.",
+    "philosophy": {
+      "title": "My Philosophy",
+      "content": "I believe in design as a tool for transformation. My approach centers on deeply understanding people: their needs and aspirations. Every design decision must have a clear purpose backed by research and empathy."
+    },
+    "process": {
+      "title": "My Process",
+      "content": "My process is iterative and collaborative. I start with deep research and data analysis. I prototype quickly to validate ideas early. I work closely with developers and users throughout the entire process."
+    },
+    "vision": {
+      "title": "My Vision",
+      "content": "I aspire to create products that genuinely improve people's lives. I want to design experiences so intuitive they go unnoticed. My vision is to democratize access to quality digital experiences."
+    },
+    "tools": {
+      "title": "Tools",
+      "content": "Figma, Sketch, Adobe XD, Principle, Framer. Mastery of interactive prototyping and scalable design systems."
+    },
+    "collaboration": {
+      "title": "Collaboration",
+      "content": "Multidisciplinary teamwork. Effective communication with developers, product managers, and stakeholders."
+    },
+    "impact": {
+      "title": "Impact",
+      "content": "Designs that generate measurable results. Focus on user metrics and continuous data-driven improvement."
+    },
+    "learning": {
+      "title": "Learning",
+      "content": "Always exploring new trends, technologies, and methodologies. Design is constantly evolving."
+    }
+  },
+  "developer": {
+    "title": "I'm a Developer",
+    "intro": "I build digital products with clean code and scalable architectures.",
+    "stack": {
+      "title": "Stack",
+      "content": "React, TypeScript, Next.js, Node.js. Expert in Supabase, PostgreSQL and serverless architectures."
+    },
+    "approach": {
+      "title": "Approach",
+      "content": "Clean code, rigorous testing, and clear documentation. I prioritize maintainability and scalability in every line."
+    },
+    "products": {
+      "title": "Products",
+      "content": "Built complete web platforms from scratch. From MVPs to enterprise systems with thousands of users."
+    },
+    "frontend": {
+      "title": "Frontend",
+      "content": "Forever curious about React and the JS ecosystem. Reusable components, performance optimization, and smooth UX."
+    },
+    "backend": {
+      "title": "Backend",
+      "content": "RESTful and GraphQL APIs. Supabase expert: auth, real-time, edge functions. Relational and NoSQL databases."
+    },
+    "mindset": {
+      "title": "Mindset",
+      "content": "Always learning new libraries and frameworks. Web development evolves fast and I love staying current."
+    },
+    "delivery": {
+      "title": "Delivery",
+      "content": "Code in production is what matters. CI/CD, monitoring, and continuous improvement based on real metrics."
+    }
   }
 } 

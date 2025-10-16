@@ -1,19 +1,10 @@
 import { createContext, useContext, useState, ReactNode } from "react"
 
 export const skills = [
-  "End-to-End Mobile App UX",
-  "Saas Product Design",
-  "User Research",
-  "UX Writing",
-  "Usability Testing",
-  "Design Systems",
-  "UX for Web Applications",
-  "UI Kits",
-  "Product Discovery",
-  "Accessibility & Inclusive Design",
-  "MVP Definition",
-  "Information Architecture",
-  "CRO Growth",
+  "Diseñar la UX/UI de un producto",
+  "Desarrollar un producto con React u otra tecnología",
+  "Desarrollar un producto integral",
+  "Otra cosa",
 ]
 
 type SkillContextType = {

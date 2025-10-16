@@ -24,7 +24,7 @@ if (import.meta.env.DEV) {
       \\/_____/   \\/_/ /_/   \\/_____/   \\/_/\\/_/   \\/_/ \\/_/   \\/____/   \\/_____/ 
   
      Contáctame en: of@orlandoflores.com
-     Puedo diseñar y programar, si lo necesitas.
+     Trabajemos juntos! 🚀
   -------------------------------------------------------------------------
   `);
 }

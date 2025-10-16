@@ -8,7 +8,8 @@ import { useTranslation } from "react-i18next"
 export function Hero() {
   const { selectedSkills, toggleSkill } = useSkills()
   const [isHovered, setIsHovered] = useState(false)
-  const [isPulsing, setIsPulsing] = useState(false)
+  const [isPulsing, setIsPulsing] = useState<string | false>(false)
+  const [isShaking, setIsShaking] = useState(false)
   const { t } = useTranslation()
   
   // ¡Operación precarga! Pa' que la weá cargue raja antes que digan "oh, qué lenta la página" 🚀
@@ -28,32 +29,17 @@ export function Hero() {
     imgPortfolio.fetchPriority = 'low';
   }, []);
 
-  // ¡Animación sutil pa' llamar la atención! Como cuando te hacen guiño en la micro 😉
+  // ¡Animación continua suave! Solo shake elegante, sin rebotes dramáticos 🎪
   useEffect(() => {
-    const triggerRandomPulse = () => {
-      // Random interval between 3-8 seconds (3000-8000ms)
-      const randomDelay = Math.random() * 5000 + 3000;
-      
-      setTimeout(() => {
-        // Only pulse if not hovered (pa' no molestar al usuario)
-        if (!isHovered) {
-          setIsPulsing(true);
-          
-          // Remove the animation class after animation completes
-          setTimeout(() => {
-            setIsPulsing(false);
-          }, 1200); // Duration matches CSS animation
-        }
-        
-        // Schedule the next pulse
-        triggerRandomPulse();
-      }, randomDelay);
-    };
+    // Start continuous shaking after small delay
+    const initialDelay = 1000; // 1 second to start shaking
+    
+    const timer = setTimeout(() => {
+      setIsShaking(true);
+    }, initialDelay);
 
-    // Start the random pulse cycle after initial delay
-    const initialDelay = Math.random() * 3000 + 2000; // 2-5 seconds initial delay
-    setTimeout(triggerRandomPulse, initialDelay);
-  }, [isHovered]);
+    return () => clearTimeout(timer);
+  }, []);
 
   const getButtonText = () => {
     if (selectedSkills.length === 0) {
@@ -104,13 +90,12 @@ export function Hero() {
   };
 
   return (
-    <section className="h-[calc(100vh-4rem)] md:h-[60vh] flex items-center justify-center px-4 bg-background text-foreground">
-      <div className="w-full mx-auto flex flex-col md:flex-row items-start md:items-center justify-start md:justify-center gap-6 md:gap-12">
-        <div className="flex flex-col md:flex-row items-start md:items-start gap-6 md:gap-12 w-full md:w-auto">
+    <section className="h-[calc(100vh-4rem)] md:h-[60vh] flex items-center overflow-visible justify-center px-4 bg-background text-foreground">
+      <div className="w-full mx-auto flex flex-col md:flex-row overflow-visible items-start md:items-center justify-start md:justify-center gap-6 md:gap-12">
+        <div className="flex flex-col md:flex-row items-start md:items-start overflow-visible gap-6 md:gap-12 w-full md:w-auto">
           <div className="shrink-0">
             <div 
-              className="w-28 h-28 md:w-48 md:h-48 aspect-square overflow-hidden profile-image-container" 
-              style={{ contain: 'layout paint' }}
+              className="w-28 h-28 md:w-48 md:h-48 aspect-square profile-image-container overflow-visible"
             >
               <img 
                 src="/profile.webp" 
@@ -119,7 +104,7 @@ export function Hero() {
                 height="192"
                 fetchPriority="high"
                 loading="eager"
-                className="w-full h-full object-cover transition-all duration-300 profile-image" 
+                className="w-full h-full object-cover profile-image" 
               />
             </div>
           </div>
@@ -155,8 +140,8 @@ export function Hero() {
                 id="button-email-me"
                 data-umami-event="cta-email-me"
                 className={`
-                  rounded-full px-6 w-full md:w-auto cursor-pointer text-sm md:text-base contact-button
-                  ${isPulsing ? 'pulse-animation' : ''}
+                  rounded-full px-8 py-3 w-full md:w-auto cursor-pointer text-base md:text-lg font-medium contact-button
+                  ${isShaking && !isHovered ? 'shake-continuous' : ''}
                 `}
                 onClick={handleEmailClick}
                 onMouseEnter={() => setIsHovered(true)}

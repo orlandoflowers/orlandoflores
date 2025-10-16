@@ -28,5 +28,69 @@
     "subjectWithSkill": "Intérêt pour les travaux de {{skill}}",
     "body": "Bonjour Orlando,\n\nJ'ai découvert votre web et j'aimerais échanger avec vous.\n\nCordialement,",
     "bodyWithSkill": "Bonjour Orlando,\n\nJe suis intéressé à discuter des travaux de {{skill}} avec vous.\n\nCordialement,"
+  },
+  "designer": {
+    "title": "Je suis Designer",
+    "intro": "Le design est ma façon de résoudre des problèmes et de créer des expériences qui comptent vraiment.",
+    "philosophy": {
+      "title": "Ma Philosophie",
+      "content": "Je crois au design comme outil de transformation. Mon approche se concentre sur une compréhension profonde des personnes : leurs besoins et aspirations. Chaque décision doit avoir un objectif clair soutenu par la recherche et l'empathie."
+    },
+    "process": {
+      "title": "Mon Processus",
+      "content": "Mon processus est itératif et collaboratif. Je commence par une recherche approfondie et l'analyse de données. Je prototypage rapidement pour valider les idées tôt. Je travaille en étroite collaboration avec les développeurs et les utilisateurs."
+    },
+    "vision": {
+      "title": "Ma Vision",
+      "content": "J'aspire à créer des produits qui améliorent véritablement la vie des gens. Je veux concevoir des expériences si intuitives qu'elles passent inaperçues. Ma vision est de démocratiser l'accès à des expériences numériques de qualité."
+    },
+    "tools": {
+      "title": "Outils",
+      "content": "Figma, Sketch, Adobe XD, Principle, Framer. Maîtrise du prototypage interactif et des systèmes de design évolutifs."
+    },
+    "collaboration": {
+      "title": "Collaboration",
+      "content": "Travail d'équipe multidisciplinaire. Communication efficace avec les développeurs, product managers et parties prenantes."
+    },
+    "impact": {
+      "title": "Impact",
+      "content": "Des designs qui génèrent des résultats mesurables. Focus sur les métriques utilisateur et l'amélioration continue basée sur les données."
+    },
+    "learning": {
+      "title": "Apprentissage",
+      "content": "Toujours à explorer de nouvelles tendances, technologies et méthodologies. Le design évolue constamment."
+    }
+  },
+  "developer": {
+    "title": "Je suis Développeur",
+    "intro": "Je construis des produits numériques avec du code propre et des architectures évolutives.",
+    "stack": {
+      "title": "Stack",
+      "content": "React, TypeScript, Next.js, Node.js. Expert en Supabase, PostgreSQL et architectures serverless."
+    },
+    "approach": {
+      "title": "Approche",
+      "content": "Code propre, tests rigoureux et documentation claire. Je priorise la maintenabilité et l'évolutivité dans chaque ligne."
+    },
+    "products": {
+      "title": "Produits",
+      "content": "J'ai créé des plateformes web complètes depuis zéro. Des MVPs aux systèmes enterprise avec des milliers d'utilisateurs."
+    },
+    "frontend": {
+      "title": "Frontend",
+      "content": "Éternellement curieux de React et l'écosystème JS. Composants réutilisables, optimisation des performances et UX fluide."
+    },
+    "backend": {
+      "title": "Backend",
+      "content": "APIs RESTful et GraphQL. Expert Supabase: auth, real-time, edge functions. Bases de données relationnelles et NoSQL."
+    },
+    "mindset": {
+      "title": "Mentalité",
+      "content": "Toujours en train d'apprendre de nouvelles bibliothèques et frameworks. Le développement web évolue vite et j'adore rester à jour."
+    },
+    "delivery": {
+      "title": "Livraison",
+      "content": "Le code en production est ce qui compte. CI/CD, monitoring et amélioration continue basée sur des métriques réelles."
+    }
   }
 } 
