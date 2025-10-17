@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { skills, useSkills } from "@/lib/skill-context"
+import { skillKeys, useSkills } from "@/lib/skill-context"
 import { useState, useEffect } from "react"
 import confetti from 'canvas-confetti'
 import { useTranslation } from "react-i18next"
@@ -114,24 +114,27 @@ export function Hero() {
             <div className="mt-1 md:mt-2">
               <p className="text-muted-foreground mb-2 text-sm md:text-base">{t("hero.contactHelp")}</p>
               <div className="flex flex-wrap gap-2 md:gap-4 justify-start">
-                {skills.map((skill, index) => (
-                  <Badge
-                    key={index}
-                    variant={selectedSkills.includes(skill) ? "default" : "outline"}
-                    className={`
-                      px-2 md:px-3 py-1 md:py-1 rounded-full text-sm md:text-sm cursor-pointer transition-colors
-                      ${selectedSkills.includes(skill) 
-                        ? "bg-primary text-primary-foreground hover:bg-primary/90" 
-                        : "bg-muted hover:bg-muted/80"
-                      }
-                    `}
-                    onClick={() => {
-                      handleSkillClick(skill);
-                    }}
-                  >
-                    {skill}
-                  </Badge>
-                ))}
+                {skillKeys.map((skillKey: string, index: number) => {
+                  const translatedSkill = t(skillKey);
+                  return (
+                    <Badge
+                      key={index}
+                      variant={selectedSkills.includes(translatedSkill) ? "default" : "outline"}
+                      className={`
+                        px-2 md:px-3 py-1 md:py-1 rounded-full text-sm md:text-sm cursor-pointer transition-colors
+                        ${selectedSkills.includes(translatedSkill) 
+                          ? "bg-primary text-primary-foreground hover:bg-primary/90" 
+                          : "bg-muted hover:bg-muted/80"
+                        }
+                      `}
+                      onClick={() => {
+                        handleSkillClick(translatedSkill);
+                      }}
+                    >
+                      {translatedSkill}
+                    </Badge>
+                  );
+                })}
               </div>
             </div>
             <div className="mt-3 md:mt-4 flex justify-start">

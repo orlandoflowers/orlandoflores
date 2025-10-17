@@ -1,19 +1,21 @@
 import { Link, useLocation } from 'react-router-dom'
 import { cn } from '@/lib/utils'
+import { useTranslation } from 'react-i18next'
 
 const navigationItems = [
-  { name: "I'm a Designer", href: '/designer' },
-  { name: "I'm a Developer", href: '/developer' },
+  { nameKey: "navigation.designer", href: '/designer' },
+  { nameKey: "navigation.developer", href: '/developer' },
 ]
 
 export function Navigation() {
   const location = useLocation()
+  const { t } = useTranslation()
 
   return (
     <nav className="hidden md:flex items-center justify-center space-x-8">
       {navigationItems.map((item) => (
         <Link
-          key={item.name}
+          key={item.nameKey}
           to={item.href}
           className={cn(
             "text-sm font-medium transition-colors hover:text-primary",
@@ -22,7 +24,7 @@ export function Navigation() {
               : "text-muted-foreground"
           )}
         >
-          {item.name}
+          {t(item.nameKey)}
         </Link>
       ))}
     </nav>
@@ -31,12 +33,13 @@ export function Navigation() {
 
 export function MobileNavigation() {
   const location = useLocation()
+  const { t } = useTranslation()
 
   return (
     <nav className="md:hidden flex flex-col space-y-4 p-4 bg-background border-t">
       {navigationItems.map((item) => (
         <Link
-          key={item.name}
+          key={item.nameKey}
           to={item.href}
           className={cn(
             "text-sm font-medium transition-colors hover:text-primary py-2",
@@ -45,7 +48,7 @@ export function MobileNavigation() {
               : "text-muted-foreground"
           )}
         >
-          {item.name}
+          {t(item.nameKey)}
         </Link>
       ))}
     </nav>

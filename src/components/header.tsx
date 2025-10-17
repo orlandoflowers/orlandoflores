@@ -47,10 +47,10 @@ export function Header() {
   }
 
   const menuItems = [
-    { label: "Home", path: "/" },
-    { label: "I'm a Designer", path: "/designer" },
-    { label: "I'm a Developer", path: "/developer" },
-    { label: "Contacto", action: handleEmailClick },
+    { labelKey: "navigation.home", path: "/" },
+    { labelKey: "navigation.designer", path: "/designer" },
+    { labelKey: "navigation.developer", path: "/developer" },
+    { labelKey: "navigation.contact", action: handleEmailClick },
   ]
 
   const handleMenuItemClick = (item: typeof menuItems[0]) => {
@@ -121,7 +121,7 @@ export function Header() {
                 onClick={() => handleMenuItemClick(item)}
                 className="w-full max-w-md py-8 text-center text-2xl font-medium rounded-2xl border border-white/20 dark:border-white/10 bg-white/50 dark:bg-black/30 backdrop-blur-xl shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
               >
-                {item.label}
+                {t(item.labelKey)}
               </button>
             ))}
           </nav>

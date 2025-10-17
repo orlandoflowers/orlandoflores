@@ -2,12 +2,24 @@
   "header": {
     "contact": "Contact"
   },
+  "navigation": {
+    "home": "Accueil",
+    "designer": "Je suis Designer",
+    "developer": "Je suis Développeur",
+    "contact": "Contact"
+  },
   "hero": {
     "description": "Je suis Product Designer à AudienceView, travaillant pour Unlimited.",
     "contactButton": "Connectons-nous",
     "contactHover": "Contactez-moi",
     "contactWithSkill": "Parlons de {{skill}}",
     "contactHelp": "Si vous avez besoin, je peux vous aider avec:"
+  },
+  "skills": {
+    "designUXUI": "Concevoir l'UX/UI d'un produit",
+    "developReact": "Développer un produit avec React ou autre technologie",
+    "developIntegral": "Développer un produit de bout en bout",
+    "other": "Autre chose"
   },
   "experience": {
     "title": "Expérience",

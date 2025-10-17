@@ -1,10 +1,11 @@
 import { createContext, useContext, useState, ReactNode } from "react"
 
-export const skills = [
-  "Diseñar la UX/UI de un producto",
-  "Desarrollar un producto con React u otra tecnología",
-  "Desarrollar un producto integral",
-  "Otra cosa",
+// Translation keys for skills
+export const skillKeys = [
+  "skills.designUXUI",
+  "skills.developReact",
+  "skills.developIntegral",
+  "skills.other",
 ]
 
 type SkillContextType = {

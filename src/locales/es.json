@@ -2,6 +2,12 @@
   "header": {
     "contact": "Contacto"
   },
+  "navigation": {
+    "home": "Inicio",
+    "designer": "Soy Diseñador",
+    "developer": "Soy Desarrollador",
+    "contact": "Contacto"
+  },
   "hero": {
     "greeting": "",
     "name": "",
@@ -10,6 +16,12 @@
     "contactHover": "Contáctame ahora 🚀",
     "contactWithSkill": "Hablemos sobre {{skill}}",
     "contactHelp": "Si necesitas, puedo ayudarte con:"
+  },
+  "skills": {
+    "designUXUI": "Diseñar la UX/UI de un producto",
+    "developReact": "Desarrollar un producto con React u otra tecnología",
+    "developIntegral": "Desarrollar un producto integral",
+    "other": "Otra cosa"
   },
   "experience": {
     "title": "Experiencia",
