@@ -1,4 +1,3 @@
-import { useTranslation } from "react-i18next"
 import { useState, useEffect } from "react"
 
 interface BlogPost {
@@ -11,7 +10,6 @@ interface BlogPost {
 }
 
 export function BlogPage() {
-  const { t } = useTranslation()
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)

@@ -8,7 +8,6 @@ import { useTranslation } from "react-i18next"
 export function Hero() {
   const { selectedSkills, toggleSkill } = useSkills()
   const [isHovered, setIsHovered] = useState(false)
-  const [isPulsing, setIsPulsing] = useState<string | false>(false)
   const [isShaking, setIsShaking] = useState(false)
   const { t } = useTranslation()
   
