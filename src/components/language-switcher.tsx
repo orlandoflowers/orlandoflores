@@ -1,15 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function LanguageSwitcher() {
   const { i18n, t } = useTranslation();
-  const [currentLangCode, setCurrentLangCode] = useState(i18n.language);
   const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    setCurrentLangCode(i18n.language);
-  }, [i18n.language]);
 
   const languages = [
     { code: "en", flag: "🇬🇧", name: "English" },
@@ -18,22 +13,21 @@ export function LanguageSwitcher() {
   ];
 
   const getCurrentFlag = () => {
-    const currentLang = languages.find(lang => lang.code === currentLangCode) || languages[0];
+    const currentLang = languages.find(lang => lang.code === i18n.language) || languages[0];
     return currentLang.flag;
   };
 
   const getNextFlag = () => {
-    const currentIndex = languages.findIndex(lang => lang.code === currentLangCode);
+    const currentIndex = languages.findIndex(lang => lang.code === i18n.language);
     const nextIndex = (currentIndex + 1) % languages.length;
     return languages[nextIndex].flag;
   };
 
   const cycleLanguage = () => {
-    const currentIndex = languages.findIndex(lang => lang.code === currentLangCode);
+    const currentIndex = languages.findIndex(lang => lang.code === i18n.language);
     const nextIndex = (currentIndex + 1) % languages.length;
     const nextLangCode = languages[nextIndex].code;
     
-    setCurrentLangCode(nextLangCode);
     i18n.changeLanguage(nextLangCode);
   };
   
@@ -47,7 +41,7 @@ export function LanguageSwitcher() {
       onMouseLeave={() => setIsHovered(false)}
       title={isHovered 
         ? t(`language.switch_to_${getNextLanguageCode()}`) 
-        : t("language." + (currentLangCode || "en"))}
+        : t("language." + (i18n.language || "en"))}
     >
       <span className={`transition-transform duration-300 ${isHovered ? 'scale-0' : 'scale-100'}`}>
         {getCurrentFlag()}
@@ -58,13 +52,13 @@ export function LanguageSwitcher() {
       <span className="sr-only">
         {isHovered 
           ? t(`language.switch_to_${getNextLanguageCode()}`) 
-          : t("language." + (currentLangCode || "en"))}
+          : t("language." + (i18n.language || "en"))}
       </span>
     </Button>
   );
 
   function getNextLanguageCode() {
-    const currentIndex = languages.findIndex(lang => lang.code === currentLangCode);
+    const currentIndex = languages.findIndex(lang => lang.code === i18n.language);
     const nextIndex = (currentIndex + 1) % languages.length;
     return languages[nextIndex].code;
   }

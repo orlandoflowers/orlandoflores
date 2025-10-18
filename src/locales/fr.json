@@ -9,7 +9,11 @@
     "contact": "Contact"
   },
   "hero": {
-    "description": "Je suis Product Designer à AudienceView, travaillant pour Unlimited.",
+    "descriptions": [
+      "Product Designer qui relie UX/UI et Métriques Business.",
+      "Full Stack Developer qui transforme votre design en code de production.",
+      "Product Builder."
+    ],
     "contactButton": "Connectons-nous",
     "contactHover": "Contactez-moi",
     "contactWithSkill": "Parlons de {{skill}}",
@@ -102,7 +106,7 @@
     },
     "delivery": {
       "title": "Livraison",
-      "content": "Le code en production est ce qui compte. CI/CD, monitoring et amélioration continue basée sur des métriques réelles."
+      "content": "Code en développement, staging et production. Itérer, tester, déployer."
     }
   }
 } 

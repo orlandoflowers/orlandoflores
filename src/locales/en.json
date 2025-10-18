@@ -11,11 +11,16 @@
   "hero": {
     "greeting": "",
     "name": "",
-    "description": "I’m a Product Designer at AudienceView, working for Unlimited.",
+    "descriptions": [
+      "Product Designer that bridges UX/UI and Business Metrics.",
+      "Full Stack Developer that takes your design into production grade code.",
+      "Product Builder."
+      
+    ],
     "contactButton": "Contact me",
     "contactHover": "Contact me now 🚀",
     "contactWithSkill": "Contact me now about {{skill}}",
-    "contactHelp": "If you need, I can help you with:"
+    "contactHelp": "I can help you with:"
   },
   "skills": {
     "designUXUI": "Design the UX/UI of a product",
@@ -104,7 +109,7 @@
     },
     "delivery": {
       "title": "Delivery",
-      "content": "Code in production is what matters. CI/CD, monitoring, and continuous improvement based on real metrics."
+      "content": "Code in development, staging and production. Iterate, test, deploy."
     }
   }
 } 

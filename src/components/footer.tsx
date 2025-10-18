@@ -6,9 +6,9 @@ export function Footer() {
   const { t } = useTranslation();
   
   return (
-    <footer className="md=h-16 mt-4 md:mt-0 border-t bg-background py-8">
+    <footer className="md=h-16 mt-4 md:mt-0 border-t bg-background py-1">
       <div className="flex h-full items-center justify-center px-4">
-        <p className="text-sm text-muted-foreground">
+        <p className="text-xs text-muted-foreground">
           {t('footer.copyright')}
         </p>
         <Button variant="ghost" size="icon" asChild>

@@ -4,12 +4,16 @@ import { skillKeys, useSkills } from "@/lib/skill-context"
 import { useState, useEffect } from "react"
 import confetti from 'canvas-confetti'
 import { useTranslation } from "react-i18next"
+import { TypingText } from "@/components/ui/typing-text"
 
 export function Hero() {
   const { selectedSkills, toggleSkill } = useSkills()
   const [isHovered, setIsHovered] = useState(false)
   const [isShaking, setIsShaking] = useState(false)
   const { t } = useTranslation()
+  
+  // Get descriptions array from translations
+  const descriptions = t("hero.descriptions", { returnObjects: true }) as string[]
   
   // ¡Operación precarga! Pa' que la weá cargue raja antes que digan "oh, qué lenta la página" 🚀
   
@@ -89,7 +93,7 @@ export function Hero() {
   };
 
   return (
-    <section className="h-[calc(100vh-4rem)] md:h-[60vh] flex items-center overflow-visible justify-center px-4 bg-background text-foreground">
+    <section className="h-[calc(100dvh-4rem)] md:h-[60vh] flex items-center overflow-visible justify-center px-4 bg-background text-foreground">
       <div className="w-full mx-auto flex flex-col md:flex-row overflow-visible items-start md:items-center justify-start md:justify-center gap-6 md:gap-12">
         <div className="flex flex-col md:flex-row items-start md:items-start overflow-visible gap-6 md:gap-12 w-full md:w-auto">
           <div className="shrink-0">
@@ -107,9 +111,14 @@ export function Hero() {
               />
             </div>
           </div>
-          <div className="flex flex-col gap-3 md:gap-4 max-w-2xl text-left">
-            <h1 className="text-4xl md:text-6xl font-medium leading-none">
-              {t("hero.description")}
+          <div className="flex flex-col gap-6 md:gap-4 max-w-2xl text-left">
+            <h1 className="text-3xl md:text-6xl font-medium leading-tight h-[120px] md:h-[216px] flex items-start">
+              <TypingText 
+                texts={descriptions}
+                typingSpeed={50}
+                deletingSpeed={30}
+                pauseDuration={2000}
+              />
             </h1>
             <div className="mt-1 md:mt-2">
               <p className="text-muted-foreground mb-2 text-sm md:text-base">{t("hero.contactHelp")}</p>
@@ -142,7 +151,7 @@ export function Hero() {
                 id="button-email-me"
                 data-umami-event="cta-email-me"
                 className={`
-                  rounded-full px-8 py-3 w-full md:w-auto cursor-pointer text-base md:text-lg font-medium contact-button
+                  rounded-full px-8 py-6 md:py-3 w-full md:w-auto cursor-pointer text-base md:text-lg font-medium contact-button
                   ${isShaking && !isHovered ? 'shake-continuous' : ''}
                 `}
                 onClick={handleEmailClick}
