@@ -9,6 +9,15 @@ interface BlogPost {
   author?: string
 }
 
+interface RssItem {
+  title: string
+  link: string
+  pubDate: string
+  description?: string
+  content: string
+  author?: string
+}
+
 export function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
@@ -34,7 +43,7 @@ export function BlogPage() {
           throw new Error('RSS feed error')
         }
         
-        const formattedPosts = data.items.map((item: any) => ({
+        const formattedPosts = data.items.map((item: RssItem) => ({
           title: item.title,
           link: item.link,
           pubDate: item.pubDate,
