@@ -6,9 +6,9 @@ import './i18n'
 
 declare global {
   interface Window {
-    dataLayer: any[];
-    gtag: (...args: any[]) => void;
-    clarity: any;
+    dataLayer: unknown[];
+    gtag: (...args: unknown[]) => void;
+    clarity: (...args: unknown[]) => void;
   }
 }
 
@@ -29,7 +29,7 @@ if (import.meta.env.DEV) {
   `);
 }
 
-const sendToAnalytics = (metric: any) => {
+const sendToAnalytics = (metric: { name: string; delta: number; id: string }) => {
   const { name, delta, id } = metric;
   window.gtag?.('event', name, {
     event_category: 'Web Vitals',

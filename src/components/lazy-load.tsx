@@ -1,9 +1,9 @@
 import { Suspense, lazy, ComponentType } from 'react';
 
 interface LazyProps {
-  component: () => Promise<{ default: ComponentType<any> }>;
+  component: () => Promise<{ default: ComponentType<Record<string, unknown>> }>;
   fallback?: React.ReactNode;
-  props?: Record<string, any>;
+  props?: Record<string, unknown>;
 }
 
 export function Lazy({ component, fallback = null, props = {} }: LazyProps) {
