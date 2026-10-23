@@ -77,7 +77,7 @@ const commissions: Commission[] = [
   },
 ]
 
-const cardClass = "p-6 rounded-2xl bg-muted h-full"
+const cardClass = "p-4 md:p-6 rounded-2xl bg-muted h-full"
 
 // A flipped card turns back on its own after a while, slower than a click-flip.
 // The countdown pauses while the pointer is over the card or it has keyboard focus.
@@ -212,7 +212,7 @@ export function Experience() {
   ];
 
   const Tags = ({ tags }: { tags: string[] }) => (
-    <div className="flex flex-wrap gap-2 mt-4">
+    <div className="flex flex-wrap gap-1.5 md:gap-2 mt-3 md:mt-4">
       {tags.map((tag) => (
         <Badge
           key={tag}
@@ -232,15 +232,15 @@ export function Experience() {
       label={t('experience.flipHint')}
       front={
         <>
-          <div className="text-sm text-muted-foreground">
+          <div className="text-[13px] md:text-sm text-muted-foreground">
             {t('experience.period', {
               startDate: experience.period.startDate,
               endDate: experience.period.endDate === "PRESENT" ? t('experience.present') : experience.period.endDate
             })}
           </div>
-          <span className="block text-lg font-medium mt-2">{experience.title}</span>
-          <div className="text-sm text-muted-foreground mt-1">{experience.company}</div>
-          <div className="text-sm text-muted-foreground">
+          <span className="block text-base md:text-lg font-medium mt-1.5 md:mt-2">{experience.title}</span>
+          <div className="text-[13px] md:text-sm text-muted-foreground mt-1">{experience.company}</div>
+          <div className="text-[13px] md:text-sm text-muted-foreground">
             {t('experience.location', {
               city: experience.location.city,
               country: experience.location.country
@@ -251,8 +251,8 @@ export function Experience() {
       }
       back={
         <>
-          <div className="text-sm font-medium">{experience.company}</div>
-          <p className="text-sm text-muted-foreground mt-2 leading-relaxed line-clamp-3">
+          <div className="text-[13px] md:text-sm font-medium">{experience.company}</div>
+          <p className="text-[13px] md:text-sm text-muted-foreground mt-2 leading-relaxed line-clamp-3">
             {t(`experience.cards.${experience.id}`)}
           </p>
           {experience.focus && <Tags tags={experience.focus} />}
@@ -267,21 +267,21 @@ export function Experience() {
       label={t('experience.flipHint')}
       front={
         <div className="flex h-full flex-col">
-          <div className="flex items-center justify-between gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center justify-between gap-2 text-[13px] md:text-sm text-muted-foreground">
             {commission.year}
             <span className="rounded-full bg-foreground px-2 py-0.5 text-[11px] font-medium text-background">
               {t('portfolio.commission')}
             </span>
           </div>
-          <span className="block text-lg font-medium mt-2">{commission.title}</span>
-          <div className="text-sm text-muted-foreground mt-1">{commission.company}</div>
+          <span className="block text-base md:text-lg font-medium mt-1.5 md:mt-2">{commission.title}</span>
+          <div className="text-[13px] md:text-sm text-muted-foreground mt-1">{commission.company}</div>
           <Tags tags={commission.tags} />
         </div>
       }
       back={
         <div className="flex h-full flex-col">
-          <div className="text-sm font-medium">{commission.company}</div>
-          <p className="text-sm text-muted-foreground mt-2 leading-relaxed line-clamp-3">
+          <div className="text-[13px] md:text-sm font-medium">{commission.company}</div>
+          <p className="text-[13px] md:text-sm text-muted-foreground mt-2 leading-relaxed line-clamp-3">
             {t(`experience.commissionCards.${commission.id}`)}
           </p>
           {commission.stack.length > 0 && <Tags tags={commission.stack} />}
@@ -298,7 +298,7 @@ export function Experience() {
   ].sort((a, b) => b.end - a.end || b.start - a.start)
 
   return (
-    <section className="w-full px-4 py-0 mt-4 md:mt-0 pb-16 md:pb-4 bg-background text-foreground">
+    <section className="w-full px-4 py-0 pb-4 bg-background text-foreground">
       <div className="w-full mx-auto">
         <h2 className="text-xs uppercase tracking-widest mb-4 text-muted-foreground">{t('experience.title')}</h2>
 
@@ -307,6 +307,8 @@ export function Experience() {
           spaceBetween={16}
           slidesPerView={1.2}
           breakpoints={{
+            // Narrower cards (more of the next one peeking) once the phone is wide enough
+            360: { slidesPerView: 1.35 },
             768: { slidesPerView: 2.6, spaceBetween: 24 },
             1024: { slidesPerView: 3.4, spaceBetween: 24 },
             1280: { slidesPerView: 4.5, spaceBetween: 24 },

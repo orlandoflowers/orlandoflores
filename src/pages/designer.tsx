@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next"
 import { contactHref } from "@/lib/contact"
 import { Link } from "react-router-dom"
 import { ArrowUpRight } from "lucide-react"
+import { NextPageLink } from "@/components/next-page-link"
 import { isCommission } from "@/data/projects"
 
 // Same Linear-style tokens and components as the portfolio page
@@ -25,9 +26,9 @@ export function DesignerPage() {
   return (
     <div className="pf w-full max-w-[1120px] mx-auto px-6">
       <header className="pf-reveal mt-16 md:mt-28 mx-auto max-w-[760px] text-center">
-        <span data-tilt className="holo avatar-squircle mx-auto mb-8 -rotate-[4deg]">
+        <Link to="/" aria-label={t("navigation.home")} data-tilt className="holo avatar-squircle mx-auto mb-8 -rotate-[4deg] focus-visible:outline-none focus-visible:scale-110 transition-[scale]">
           <img src="/avatar-illustration.webp" alt="" width={104} height={104} />
-        </span>
+        </Link>
         <p className="pf-eyebrow justify-center mb-6">
           <span className="pf-dot" style={{ background: "#b56cf0" }} />
           {t("designer.title")}
@@ -89,7 +90,7 @@ export function DesignerPage() {
         </dl>
       </section>
 
-      <aside className="pf-reveal mt-24 md:mt-32 mb-24 md:mb-32 flex flex-col gap-6 border-t border-border pt-12 md:flex-row md:items-end md:justify-between">
+      <aside className="pf-reveal mt-24 md:mt-32 flex flex-col gap-6 border-t border-border pt-12 md:flex-row md:items-end md:justify-between">
         <div>
           <h2 className="pf-h3">{t("designer.cta.title")}</h2>
           <p className="pf-lead mt-2 max-w-[46ch]">{t("designer.cta.body")}</p>
@@ -99,6 +100,8 @@ export function DesignerPage() {
           <a href={contactHref(t("portfolio.emailSubject"))} className="pf-btn pf-btn--primary">{t("portfolio.getInTouch")}</a>
         </div>
       </aside>
+
+      <NextPageLink to="/developer" label={t("navigation.developer")} />
     </div>
   )
 }

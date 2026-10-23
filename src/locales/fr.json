@@ -4,6 +4,7 @@
   },
   "navigation": {
     "home": "Accueil",
+    "next": "Suivant",
     "portfolio": "Portfolio",
     "designer": "Je suis Designer",
     "developer": "Je suis Ingénieur Logiciel",

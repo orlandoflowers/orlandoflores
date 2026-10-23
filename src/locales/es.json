@@ -4,6 +4,7 @@
   },
   "navigation": {
     "home": "Inicio",
+    "next": "Siguiente",
     "portfolio": "Portafolio",
     "designer": "Soy Diseñador",
     "developer": "Soy Ingeniero de Software",
@@ -13,7 +14,7 @@
     "greeting": "",
     "name": "",
     "descriptions": [
-      "Product Engineer que diseña y desarrolla productos de punta a punta.",
+      "Product Engineer que diseña y crea productos de punta a punta.",
       "Product Designer que conecta UX/UI y Métricas de Negocio.",
       "Software Engineer que convierte tu diseño en código de producción."
     ],

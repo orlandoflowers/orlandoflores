@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react"
 import { useTranslation } from "react-i18next"
 import { contactHref } from "@/lib/contact"
-import { useLocation } from "react-router-dom"
+import { useLocation, Link } from "react-router-dom"
 import { projects, type MediaItem, type Project, type ProjectTag } from "@/data/projects"
 import { cn } from "@/lib/utils"
 import { ArrowUpRight, BookOpen, Briefcase, Handshake, Component, FlaskConical, Globe, LayoutGrid, Mic, Monitor, Smartphone, Sparkles, X, type LucideIcon } from "lucide-react"
@@ -224,9 +224,9 @@ export function PortfolioPage() {
   return (
     <div className="pf w-full max-w-[1120px] mx-auto px-6">
       <header className="pf-reveal mt-16 md:mt-28 mx-auto max-w-[760px] text-center">
-        <span data-tilt className="holo avatar-squircle mx-auto mb-8">
+        <Link to="/" aria-label={t("navigation.home")} data-tilt className="holo avatar-squircle mx-auto mb-8 focus-visible:outline-none focus-visible:scale-110 transition-[scale]">
           <img src="/avatar-illustration.webp" alt="" width={104} height={104} />
-        </span>
+        </Link>
         <p className="pf-eyebrow justify-center mb-6">
           <span className="text-foreground/85">Orlando Flores</span>
         </p>

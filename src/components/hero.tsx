@@ -36,9 +36,9 @@ export function Hero() {
   }
 
   return (
-    <section className="h-[calc(100dvh-4rem)] md:h-[60vh] flex items-center overflow-visible justify-center px-4 bg-background text-foreground">
+    <section className="flex-1 py-6 md:py-0 md:flex-none md:h-[60vh] flex items-center overflow-visible justify-center px-4 bg-background text-foreground">
       <div className="w-full mx-auto flex flex-col md:flex-row overflow-visible items-start md:items-center justify-start md:justify-center gap-6 md:gap-12">
-        <div className="flex flex-col md:flex-row items-start md:items-start overflow-visible gap-6 md:gap-12 w-full md:w-auto">
+        <div className="flex flex-col md:flex-row items-start md:items-start overflow-visible gap-5 md:gap-12 w-full md:w-auto">
           <div className="shrink-0">
             {/* Hovering swaps the photo for the illustrated avatar used on the other pages */}
             <div 
@@ -62,10 +62,10 @@ export function Hero() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col gap-6 md:gap-4 max-w-2xl text-left">
-            {/* Always 2–3 lines: max-w caps the measure (no phrase fits on one line), and the
-                fluid phone size keeps the column ≥ ~13.5em so the longest phrase needs ≤ 3 lines */}
-            <h1 className="max-w-[19em] text-[clamp(21px,6.6vw,26px)] leading-[1.2] md:text-[40px] md:leading-[1.15] xl:text-5xl xl:leading-[1.1] font-medium">
+          <div className="flex flex-col gap-5 md:gap-4 max-w-2xl text-left">
+            {/* Always 2–3 lines: max-w caps the measure (no phrase fits on one line), and on phones
+                the size scales with the column so the longest phrase (es) still needs ≤ 3 lines */}
+            <h1 className="max-w-[19em] text-[clamp(22px,calc((100vw-32px)/11),36px)] leading-[1.15] md:text-[40px] md:leading-[1.15] xl:text-5xl xl:leading-[1.1] font-medium">
               <RotatingText texts={descriptions} stagger={70} pauseDuration={2600} />
             </h1>
             <div className="pf mt-1 md:mt-2 flex flex-wrap items-center gap-2">

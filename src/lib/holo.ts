@@ -11,6 +11,7 @@ export function installHolo(): () => void {
   let active: HTMLElement | null = null
   let frame = 0
   let last: PointerEvent | null = null
+  let touchFade = 0
 
   const reset = (el: HTMLElement) => {
     el.removeAttribute("data-holo-on")
@@ -36,17 +37,27 @@ export function installHolo(): () => void {
     active.style.setProperty("--holo-x", `${x * 100}%`)
     active.style.setProperty("--holo-y", `${y * 100}%`)
 
-    // Like the example, tilt only follows the pointer when motion is allowed
-    if (active.hasAttribute("data-tilt") && !motion.matches) {
+    // Like the example, tilt only follows the pointer when motion is allowed.
+    // Touch gets the sheen but no tilt, so cards don't wobble while you swipe the row.
+    if (active.hasAttribute("data-tilt") && !motion.matches && event.pointerType !== "touch") {
       active.style.setProperty("--holo-rx", `${(0.5 - y) * 2 * MAX_TILT_DEG}deg`)
       active.style.setProperty("--holo-ry", `${(x - 0.5) * 2 * MAX_TILT_DEG}deg`)
     }
   }
 
   const move = (event: PointerEvent) => {
-    if (event.pointerType !== "mouse" && event.pointerType !== "pen") return
+    // Touch only lights things up while a finger is down (no hover on phones)
+    if (event.pointerType === "touch" && event.type === "pointermove" && !event.isPrimary) return
+    clearTimeout(touchFade)
     last = event
     if (!frame) frame = requestAnimationFrame(update)
+  }
+
+  // After the finger lifts (or a scroll takes over), let the sheen linger briefly, then fade
+  const release = (event: PointerEvent) => {
+    if (event.pointerType !== "touch") return
+    clearTimeout(touchFade)
+    touchFade = window.setTimeout(leave, event.type === "pointercancel" ? 0 : 450)
   }
 
   const leave = () => {
@@ -56,13 +67,20 @@ export function installHolo(): () => void {
   }
 
   document.addEventListener("pointermove", move, { passive: true })
+  document.addEventListener("pointerdown", move, { passive: true })
+  document.addEventListener("pointerup", release, { passive: true })
+  document.addEventListener("pointercancel", release, { passive: true })
   document.documentElement.addEventListener("pointerleave", leave)
   window.addEventListener("blur", leave)
 
   // Mirrors the example's dispose(): remove every listener and pending frame
   return () => {
     cancelAnimationFrame(frame)
+    clearTimeout(touchFade)
     document.removeEventListener("pointermove", move)
+    document.removeEventListener("pointerdown", move)
+    document.removeEventListener("pointerup", release)
+    document.removeEventListener("pointercancel", release)
     document.documentElement.removeEventListener("pointerleave", leave)
     window.removeEventListener("blur", leave)
     if (active) reset(active)

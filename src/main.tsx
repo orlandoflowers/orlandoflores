@@ -4,6 +4,12 @@ import './index.css'
 import App from './App.tsx'
 import './i18n'
 
+// Squircle corners everywhere (styles in index.css): native corner-shape where supported
+// (Chromium 139+), a clip-path shape() outline otherwise (Safari 18.4+), else plain border-radius
+const root = document.documentElement
+if (CSS.supports('corner-shape', 'squircle')) root.classList.add('sq-native')
+else if (CSS.supports('clip-path', 'shape(from 0 0, line to 100% 0, line to 0 100%, close)')) root.classList.add('sq-shape')
+
 declare global {
   interface Window {
     dataLayer: unknown[];
