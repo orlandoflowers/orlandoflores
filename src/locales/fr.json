@@ -4,15 +4,16 @@
   },
   "navigation": {
     "home": "Accueil",
+    "portfolio": "Portfolio",
     "designer": "Je suis Designer",
-    "developer": "Je suis Développeur",
+    "developer": "Je suis Ingénieur Logiciel",
     "contact": "Contact"
   },
   "hero": {
     "descriptions": [
+      "Product Engineer qui conçoit et développe des produits de bout en bout.",
       "Product Designer qui relie UX/UI et Métriques Business.",
-      "Full Stack Developer qui transforme votre design en code de production.",
-      "Product Builder."
+      "Software Engineer qui transforme votre design en code de production."
     ],
     "contactButton": "Connectons-nous",
     "contactHover": "Contactez-moi",
@@ -27,17 +28,35 @@
   },
   "experience": {
     "title": "Expérience",
+    "flipHint": "Touchez pour en savoir plus",
+    "cards": {
+      "wetechnologies": "Design produit pour l’IoT et l’IA.",
+      "betterfly": "Design system des défis, accueil et onboarding d’une app bien-être.",
+      "foris": "Design produit pour l’éducation avec l’IA.",
+      "ripley": "Design produit pour la banque en ligne.",
+      "audienceview": "Le checkout Unlimited : plans de salle, tarifs et paiement."
+    },
+    "commissionCards": {
+      "searchbrand": "Visibilité des marques dans les réponses IA, avec dashboards.",
+      "socratia": "Un tuteur IA qui enseigne par les questions, avec des cours vocaux.",
+      "ifert": "Dashboards pour 100+ capteurs SMAPA à Maipú : données AWS, alertes, PWA.",
+      "ceve": "Créateur de CV : import PDF, modèles ATS et suivi des candidatures.",
+      "macos": "Apps natives en Swift : AudioSwitch, Schedulizer et Ridding."
+    },
     "period": "{{startDate}} - {{endDate}}",
     "present": "Présent",
     "location": "{{city}}, {{country}}"
   },
   "footer": {
-    "copyright": "© 2025 Orlando Flores. Tous droits réservés. Intéressé par la collaboration? Parlons! | Recherche un développeur? Je peux t'aider, je suis aussi un développeur!"
+    "copyright": "© 2025 Orlando Flores. Tous droits réservés. Intéressé par la collaboration? Parlons! | Vous cherchez un ingénieur logiciel ? Je peux vous aider, j'en suis un !"
   },
   "language": {
     "en": "Anglais",
     "es": "Espagnol",
-    "fr": "Français"
+    "fr": "Français",
+    "switch_to_en": "Passer à l’anglais",
+    "switch_to_es": "Passer à l’espagnol",
+    "switch_to_fr": "Passer au français"
   },
   "email": {
     "subject": "Demande de Design",
@@ -47,66 +66,238 @@
   },
   "designer": {
     "title": "Je suis Designer",
-    "intro": "Le design est ma façon de résoudre des problèmes et de créer des expériences qui comptent vraiment.",
-    "philosophy": {
-      "title": "Ma Philosophie",
-      "content": "Je crois au design comme outil de transformation. Mon approche se concentre sur une compréhension profonde des personnes : leurs besoins et aspirations. Chaque décision doit avoir un objectif clair soutenu par la recherche et l'empathie."
+    "headline": "Je peux concevoir des choses",
+    "intro": "Je conçois des produits de bout en bout, de la recherche et des parcours jusqu’aux interfaces et aux design systems, et je teste les décisions en code avec de vraies données.",
+    "work": {
+      "title": "Projets choisis",
+      "searchbrand": {
+        "title": "Rendre lisible la visibilité dans l’IA",
+        "body": "Un onboarding en six étapes qui configure la marque, puis des tableaux de bord qui transforment les réponses des LLM en métriques exploitables par une équipe marketing, sur desktop et mobile.",
+        "tags": [
+          "Onboarding",
+          "Tableaux de bord",
+          "Web et mobile"
+        ]
+      },
+      "socratia": {
+        "title": "Un tuteur avec une personnalité",
+        "body": "Delfí, un personnage aux seize humeurs, avec des cours vocaux et un parcours d’apprentissage qui enseigne par les questions plutôt que par les réponses.",
+        "tags": [
+          "Character design",
+          "UX vocale",
+          "Apprentissage"
+        ]
+      },
+      "audienceview": {
+        "title": "Un checkout pour le spectacle vivant",
+        "body": "Choisir ses places sur le plan de salle, sélectionner les tarifs et payer, pour des salles et des organisations d’arts vivants aux États-Unis, au Canada et au Royaume-Uni.",
+        "tags": [
+          "Checkout",
+          "Design d’interaction",
+          "Web"
+        ]
+      },
+      "betterfly": {
+        "title": "Un design system pour les bonnes habitudes",
+        "body": "Les composants de défis, l’accueil et l’onboarding d’une app qui transforme les habitudes saines en couverture d’assurance vie et en dons.",
+        "tags": [
+          "Design system",
+          "Mobile",
+          "Onboarding"
+        ]
+      }
     },
-    "process": {
-      "title": "Mon Processus",
-      "content": "Mon processus est itératif et collaboratif. Je commence par une recherche approfondie et l'analyse de données. Je prototypage rapidement pour valider les idées tôt. Je travaille en étroite collaboration avec les développeurs et les utilisateurs."
+    "principles": {
+      "title": "Ma façon de travailler",
+      "problem": {
+        "title": "Partir du problème, pas de l’écran",
+        "body": "La recherche, les données et les échanges avec les utilisateurs et les parties prenantes d’abord. Chaque décision de design doit découler de ce qu’on a appris."
+      },
+      "prototype": {
+        "title": "Prototyper tôt, en code quand ça compte",
+        "body": "Des prototypes rapides valident les parcours avant les finitions. Les prototypes en code les confrontent aux vraies données, au vrai contenu et aux cas limites."
+      },
+      "systems": {
+        "title": "Des systèmes plutôt que des écrans",
+        "body": "Des composants, des tokens et des patterns réutilisables, pour que le produit reste cohérent en grandissant."
+      },
+      "measure": {
+        "title": "Mesurer ce qui change",
+        "body": "Les designs sont reliés aux métriques produit : après le lancement, on sait ce qui a marché et quoi itérer."
+      }
     },
-    "vision": {
-      "title": "Ma Vision",
-      "content": "J'aspire à créer des produits qui améliorent véritablement la vie des gens. Je veux concevoir des expériences si intuitives qu'elles passent inaperçues. Ma vision est de démocratiser l'accès à des expériences numériques de qualité."
+    "toolkit": {
+      "title": "Boîte à outils",
+      "groups": [
+        {
+          "label": "Recherche",
+          "items": [
+            "Entretiens utilisateurs",
+            "Tests d’utilisabilité",
+            "Analytics produit"
+          ]
+        },
+        {
+          "label": "Design produit",
+          "items": [
+            "Parcours utilisateurs",
+            "Wireframes",
+            "Design UI",
+            "Design d’interaction"
+          ]
+        },
+        {
+          "label": "Systèmes",
+          "items": [
+            "Design tokens",
+            "Bibliothèques de composants",
+            "Documentation"
+          ]
+        },
+        {
+          "label": "Prototypage",
+          "items": [
+            "Figma",
+            "Framer",
+            "React",
+            "SwiftUI"
+          ]
+        }
+      ]
     },
-    "tools": {
-      "title": "Outils",
-      "content": "Figma, Sketch, Adobe XD, Principle, Framer. Maîtrise du prototypage interactif et des systèmes de design évolutifs."
-    },
-    "collaboration": {
-      "title": "Collaboration",
-      "content": "Travail d'équipe multidisciplinaire. Communication efficace avec les développeurs, product managers et parties prenantes."
-    },
-    "impact": {
-      "title": "Impact",
-      "content": "Des designs qui génèrent des résultats mesurables. Focus sur les métriques utilisateur et l'amélioration continue basée sur les données."
-    },
-    "learning": {
-      "title": "Apprentissage",
-      "content": "Toujours à explorer de nouvelles tendances, technologies et méthodologies. Le design évolue constamment."
+    "cta": {
+      "title": "Un projet à concevoir ?",
+      "body": "Du premier parcours au design system complet, et je peux aussi le construire."
     }
   },
   "developer": {
-    "title": "Je suis Développeur",
-    "intro": "Je construis des produits numériques avec du code propre et des architectures évolutives.",
+    "title": "Je suis Ingénieur Logiciel",
+    "headline": "Je peux construire des choses",
+    "intro": "J’amène des produits d’un dépôt vide jusqu’à la production : frontend, backend, données et IA, et des apps natives quand le produit l’exige.",
+    "builds": {
+      "title": "Réalisé récemment",
+      "searchbrand": {
+        "title": "SaaS de suivi de marque multi-LLM",
+        "body": "Un monorepo Turborepo : une app Next.js, un cœur métier typé sur Drizzle et PostgreSQL, et des workers Hono sur Cloud Run qui interrogent Gemini, OpenAI, Anthropic et Perplexity via des files asynchrones."
+      },
+      "socratia": {
+        "title": "Tuteur IA avec cours vocaux",
+        "body": "Une app Next.js et Supabase qui enseigne par les questions plutôt que par les réponses, avec des conversations propulsées par Claude et des tests end-to-end avec Playwright."
+      },
+      "audioswitch": {
+        "title": "Utilitaire macOS natif",
+        "body": "Une app de barre des menus en Swift qui change de périphérique audio avec un raccourci façon ⌘Tab, construite sur CoreAudio, AppKit et SwiftUI, sans dépendances."
+      }
+    },
+    "principles": {
+      "title": "Ma façon de travailler",
+      "loop": {
+        "title": "Design et code dans la même boucle",
+        "body": "Je prototype en code : les décisions de design rencontrent tôt les vraies données et les vraies contraintes, pas au moment du handoff."
+      },
+      "typed": {
+        "title": "De React à Python, ou en mode Swiftie",
+        "body": "Web, backend ou natif : je prends en main ce dont le produit a besoin et deviens vite productif, que ce soit TypeScript et React, des services Python ou Swift pour Apple."
+      },
+      "ship": {
+        "title": "Livrer petit, livrer souvent",
+        "body": "Développement, staging, production. De petites releases via la CI, mesurées, puis itérées."
+      },
+      "ai": {
+        "title": "L’IA au cœur du produit",
+        "body": "LLM, voix et workers en arrière-plan intégrés aux vrais parcours produit, avec files, reprises et suivi d’usage. Pas des démos."
+      }
+    },
     "stack": {
       "title": "Stack",
-      "content": "React, TypeScript, Next.js, Node.js. Expert en Supabase, PostgreSQL et architectures serverless."
+      "frontend": "Frontend",
+      "backend": "Backend et données",
+      "ai": "IA",
+      "cloud": "Cloud et CI",
+      "native": "Natif",
+      "quality": "Tests"
     },
-    "approach": {
-      "title": "Approche",
-      "content": "Code propre, tests rigoureux et documentation claire. Je priorise la maintenabilité et l'évolutivité dans chaque ligne."
+    "cta": {
+      "title": "Un projet à construire ?",
+      "body": "Du premier prototype au système en production, je peux le porter de bout en bout.",
+      "work": "Voir les projets"
+    }
+  },
+  "portfolio": {
+    "emailSubject": "Bonjour depuis ton site",
+    "getInTouch": "Me contacter",
+    "caseStudy": {"title": "Étude de cas", "open": "Lire l’étude de cas", "close": "Fermer l’étude de cas", "enlarge": "Agrandir"},
+    "role": "Product Engineer",
+    "bio": "Bienvenue sur mon portfolio, un aperçu de mon travail. Il y en a plus, mais il faut savoir prioriser.",
+    "cta": {"title": "Construisons quelque chose ensemble.", "body": "Une idée, un produit ou une fonctionnalité qui a besoin de quelqu’un pour la concevoir et la construire de bout en bout ?"},
+    "commission": "Freelance",
+    "filterLabel": "Filtrer les projets",
+    "filters": {
+      "all": "Tout",
+      "work": "Travail",
+      "commission": "Freelance",
+      "personal": "Projets perso",
+      "ai": "IA",
+      "mobile": "Mobile",
+      "web": "Web",
+      "native": "Natif",
+      "voice": "Voix",
+      "design-system": "Design systems",
+      "case-study": "Études de cas"
     },
-    "products": {
-      "title": "Produits",
-      "content": "J'ai créé des plateformes web complètes depuis zéro. Des MVPs aux systèmes enterprise avec des milliers d'utilisateurs."
-    },
-    "frontend": {
-      "title": "Frontend",
-      "content": "Éternellement curieux de React et l'écosystème JS. Composants réutilisables, optimisation des performances et UX fluide."
-    },
-    "backend": {
-      "title": "Backend",
-      "content": "APIs RESTful et GraphQL. Expert Supabase: auth, real-time, edge functions. Bases de données relationnelles et NoSQL."
-    },
-    "mindset": {
-      "title": "Mentalité",
-      "content": "Toujours en train d'apprendre de nouvelles bibliothèques et frameworks. Le développement web évolue vite et j'adore rester à jour."
-    },
-    "delivery": {
-      "title": "Livraison",
-      "content": "Code en développement, staging et production. Itérer, tester, déployer."
+    "projects": {
+      "audienceview": {
+        "media": {
+          "checkout-flow": "Paiement · Du choix des places à l'achat"
+        },
+        "name": "Plateforme de Billetterie",
+        "description": [
+          "AudienceView propulse la billetterie de salles et d'organisations d'arts vivants aux États-Unis, au Canada et au Royaume-Uni."
+        ]
+      },
+      "searchbrand": {
+        "media": {
+          "desktop": "Ordinateur · Configuration de marque, analyse et tableau de bord",
+          "mobile": "Mobile · Configuration de marque et résultats",
+          "marquee": "Aperçu du produit · Écrans mobiles"
+        },
+        "name": "Visibilité de Marque dans l'IA",
+        "description": [
+          "Searchbrand.AI aide les marques à comprendre et améliorer leur présence dans la recherche IA et les réponses des LLM."
+        ]
+      },
+      "socratia": {
+        "media": {
+          "journey": "Parcours d’apprentissage · Cours, exercices et pratique",
+          "talk": "Cours vocal · Apprendre à voix haute avec Delfí",
+          "moods": "Delfí · Émotions et réactions du personnage"
+        },
+        "name": "Compagnon d'Apprentissage IA",
+        "description": [
+          "Socratia est un tuteur IA qui enseigne par les questions plutôt que par les réponses."
+        ]
+      },
+      "audioswitch": {
+        "media": {
+          "switcher": "Sélecteur · Sorties et entrées au clavier",
+          "settings": "Réglages · Raccourci personnalisable"
+        },
+        "name": "App macOS native",
+        "description": [
+          "AudioSwitch est une app native de barre des menus pour macOS, écrite en Swift, qui change les sorties et entrées audio depuis le clavier. Maintenez Espace, appuyez sur Tab pour parcourir les appareils et relâchez pour basculer, comme ⌘Tab pour les apps."
+        ]
+      },
+      "betterfly": {
+        "media": {
+          "home-standard": "Accueil · Habitudes saines et défis",
+          "onboarding": "Premiers pas · De l’accueil à l’inscription",
+          "design-system": "Système de design · Composants des défis"
+        },
+        "name": "App Bien-être et Assurance",
+        "description": [
+          "Betterfly transforme les habitudes saines en couverture d'assurance vie et en dons solidaires."
+        ]
+      }
     }
   }
-} 
+}

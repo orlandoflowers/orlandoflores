@@ -12,19 +12,22 @@ export function LanguageSwitcher() {
     { code: "fr", flag: "🇫🇷", name: "Français" },
   ];
 
+  // resolvedLanguage is always one of ours ("en"), unlike language ("en-US")
+  const current = i18n.resolvedLanguage ?? "en";
+
   const getCurrentFlag = () => {
-    const currentLang = languages.find(lang => lang.code === i18n.language) || languages[0];
+    const currentLang = languages.find(lang => lang.code === current) || languages[0];
     return currentLang.flag;
   };
 
   const getNextFlag = () => {
-    const currentIndex = languages.findIndex(lang => lang.code === i18n.language);
+    const currentIndex = languages.findIndex(lang => lang.code === current);
     const nextIndex = (currentIndex + 1) % languages.length;
     return languages[nextIndex].flag;
   };
 
   const cycleLanguage = () => {
-    const currentIndex = languages.findIndex(lang => lang.code === i18n.language);
+    const currentIndex = languages.findIndex(lang => lang.code === current);
     const nextIndex = (currentIndex + 1) % languages.length;
     const nextLangCode = languages[nextIndex].code;
     
@@ -41,7 +44,7 @@ export function LanguageSwitcher() {
       onMouseLeave={() => setIsHovered(false)}
       title={isHovered 
         ? t(`language.switch_to_${getNextLanguageCode()}`) 
-        : t("language." + (i18n.language || "en"))}
+        : t("language." + current)}
     >
       <span className={`transition-transform duration-300 ${isHovered ? 'scale-0' : 'scale-100'}`}>
         {getCurrentFlag()}
@@ -52,13 +55,13 @@ export function LanguageSwitcher() {
       <span className="sr-only">
         {isHovered 
           ? t(`language.switch_to_${getNextLanguageCode()}`) 
-          : t("language." + (i18n.language || "en"))}
+          : t("language." + current)}
       </span>
     </Button>
   );
 
   function getNextLanguageCode() {
-    const currentIndex = languages.findIndex(lang => lang.code === i18n.language);
+    const currentIndex = languages.findIndex(lang => lang.code === current);
     const nextIndex = (currentIndex + 1) % languages.length;
     return languages[nextIndex].code;
   }

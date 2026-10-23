@@ -1,184 +1,104 @@
 import { useTranslation } from "react-i18next"
-import { Palette, Lightbulb, Target, Wrench, Users, TrendingUp, BookOpen } from "lucide-react"
-import { useState } from "react"
+import { contactHref } from "@/lib/contact"
+import { Link } from "react-router-dom"
+import { ArrowUpRight } from "lucide-react"
+import { isCommission } from "@/data/projects"
+
+// Same Linear-style tokens and components as the portfolio page
+import "./portfolio.css"
+
+const work = [
+  { id: "searchbrand", company: "Searchbrand.AI", accent: "#4ea7fc" },
+  { id: "socratia", company: "Socratia", accent: "#f2994a" },
+  { id: "audienceview", company: "AudienceView", accent: "#b56cf0" },
+  { id: "betterfly", company: "Betterfly", accent: "#68cc58" },
+]
+
+const principles = ["problem", "prototype", "systems", "measure"] as const
+
+type ToolkitGroup = { label: string; items: string[] }
 
 export function DesignerPage() {
   const { t } = useTranslation()
-  const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set())
-
-  const toggleCard = (cardName: string) => {
-    setExpandedCards(prev => {
-      const newSet = new Set(prev)
-      if (newSet.has(cardName)) {
-        newSet.delete(cardName)
-      } else {
-        newSet.add(cardName)
-      }
-      return newSet
-    })
-  }
+  const toolkit = t("designer.toolkit.groups", { returnObjects: true }) as ToolkitGroup[]
 
   return (
-    <div className="container mx-auto px-6 py-12">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{t("designer.title")}</h1>
-          <p className="text-xl text-muted-foreground">
-            {t("designer.intro")}
-          </p>
+    <div className="pf w-full max-w-[1120px] mx-auto px-6">
+      <header className="pf-reveal mt-16 md:mt-28 mx-auto max-w-[760px] text-center">
+        <span data-tilt className="holo avatar-squircle mx-auto mb-8 -rotate-[4deg]">
+          <img src="/avatar-illustration.webp" alt="" width={104} height={104} />
+        </span>
+        <p className="pf-eyebrow justify-center mb-6">
+          <span className="pf-dot" style={{ background: "#b56cf0" }} />
+          {t("designer.title")}
+        </p>
+        <h1 className="pf-h1">{t("designer.headline")}</h1>
+        <p className="pf-lead mt-6 mx-auto max-w-[560px]">{t("designer.intro")}</p>
+      </header>
+
+      <section className="pf-reveal mt-24 md:mt-32">
+        <h2 className="pf-h3 mb-8">{t("designer.principles.title")}</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          {principles.map((p, i) => (
+            <div key={p} className="pf-card p-6 md:p-7">
+              <p className="pf-eyebrow tabular-nums">0{i + 1}</p>
+              <h3 className="pf-card-title mt-2 !text-[17px]">{t(`designer.principles.${p}.title`)}</h3>
+              <p className="pf-lead mt-2 !text-[15px]">{t(`designer.principles.${p}.body`)}</p>
+            </div>
+          ))}
         </div>
+      </section>
 
-        {/* Content Sections - Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[minmax(200px,auto)]">
-          {/* Philosophy - Wide */}
-          <section 
-            className="group/philosophy p-6 rounded-2xl border border-white/20 dark:border-white/10 bg-white/40 dark:bg-black/20 backdrop-blur-xl shadow-lg md:cursor-pointer md:col-span-2"
-            onMouseEnter={() => setExpandedCards(prev => new Set(prev).add('philosophy'))}
-            onClick={() => toggleCard('philosophy')}
-          >
-            <div className="flex flex-col items-start text-left gap-4">
-              <div className="p-3 rounded-xl bg-black/5 text-foreground group-hover/philosophy:bg-black/10 transition-colors flex-shrink-0">
-                <Palette className="w-6 h-6" />
-              </div>
-              <div className="flex-1 min-w-0 w-full">
-                <h2 className="text-xl md:text-2xl font-semibold mb-4">
-                  {t("designer.philosophy.title")}
-                </h2>
-                <p className={`text-muted-foreground leading-relaxed text-sm opacity-100 md:opacity-0 ${expandedCards.has('philosophy') ? 'md:!opacity-100' : ''} transition-opacity duration-300`}>
-                  {t("designer.philosophy.content")}
+      <section className="pf-reveal mt-24 md:mt-32">
+        <h2 className="pf-h3 mb-8">{t("designer.work.title")}</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          {work.map((w) => {
+            const tags = t(`designer.work.${w.id}.tags`, { returnObjects: true }) as string[]
+            return (
+              <Link key={w.id} to={`/portfolio#${w.id}`} data-tilt className="pf-card group flex flex-col p-6 md:p-7">
+                <p className="pf-eyebrow">
+                  <span className="pf-dot" style={{ background: w.accent }} />
+                  {w.company}
+                  {isCommission(w.id) && <span className="pf-tag !h-5 !text-[11px]">{t("portfolio.commission")}</span>}
                 </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Process - Regular */}
-          <section 
-            className="group/process p-6 rounded-2xl border border-white/20 dark:border-white/10 bg-white/40 dark:bg-black/20 backdrop-blur-xl shadow-lg md:cursor-pointer md:col-span-1"
-            onMouseEnter={() => setExpandedCards(prev => new Set(prev).add('process'))}
-            onClick={() => toggleCard('process')}
-          >
-            <div className="flex flex-col items-start text-left gap-4">
-              <div className="p-3 rounded-xl bg-black/5 text-foreground group-hover/process:bg-black/10 transition-colors flex-shrink-0">
-                <Lightbulb className="w-6 h-6" />
-              </div>
-              <div className="flex-1 min-w-0 w-full">
-                <h2 className="text-xl md:text-2xl font-semibold mb-4">
-                  {t("designer.process.title")}
-                </h2>
-                <p className={`text-muted-foreground leading-relaxed text-sm opacity-100 md:opacity-0 ${expandedCards.has('process') ? 'md:!opacity-100' : ''} transition-opacity duration-300`}>
-                  {t("designer.process.content")}
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Vision - Regular */}
-          <section 
-            className="group/vision p-6 rounded-2xl border border-white/20 dark:border-white/10 bg-white/40 dark:bg-black/20 backdrop-blur-xl shadow-lg md:cursor-pointer md:col-span-1"
-            onMouseEnter={() => setExpandedCards(prev => new Set(prev).add('vision'))}
-            onClick={() => toggleCard('vision')}
-          >
-            <div className="flex flex-col items-start text-left gap-4">
-              <div className="p-3 rounded-xl bg-black/5 text-foreground group-hover/vision:bg-black/10 transition-colors flex-shrink-0">
-                <Target className="w-6 h-6" />
-              </div>
-              <div className="flex-1 min-w-0 w-full">
-                <h2 className="text-xl md:text-2xl font-semibold mb-4">
-                  {t("designer.vision.title")}
-                </h2>
-                <p className={`text-muted-foreground leading-relaxed text-sm opacity-100 md:opacity-0 ${expandedCards.has('vision') ? 'md:!opacity-100' : ''} transition-opacity duration-300`}>
-                  {t("designer.vision.content")}
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Tools - Regular */}
-          <section 
-            className="group/tools p-6 rounded-2xl border border-white/20 dark:border-white/10 bg-white/40 dark:bg-black/20 backdrop-blur-xl shadow-lg md:cursor-pointer md:col-span-1"
-            onMouseEnter={() => setExpandedCards(prev => new Set(prev).add('tools'))}
-            onClick={() => toggleCard('tools')}
-          >
-            <div className="flex flex-col items-start text-left gap-4">
-              <div className="p-3 rounded-xl bg-black/5 text-foreground group-hover/tools:bg-black/10 transition-colors flex-shrink-0">
-                <Wrench className="w-6 h-6" />
-              </div>
-              <div className="flex-1 min-w-0 w-full">
-                <h2 className="text-xl md:text-2xl font-semibold mb-4">
-                  {t("designer.tools.title")}
-                </h2>
-                <p className={`text-muted-foreground leading-relaxed text-sm opacity-100 md:opacity-0 ${expandedCards.has('tools') ? 'md:!opacity-100' : ''} transition-opacity duration-300`}>
-                  {t("designer.tools.content")}
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Collaboration - Wide */}
-          <section 
-            className="group/collaboration p-6 rounded-2xl border border-white/20 dark:border-white/10 bg-white/40 dark:bg-black/20 backdrop-blur-xl shadow-lg md:cursor-pointer md:col-span-2"
-            onMouseEnter={() => setExpandedCards(prev => new Set(prev).add('collaboration'))}
-            onClick={() => toggleCard('collaboration')}
-          >
-            <div className="flex flex-col items-start text-left gap-4">
-              <div className="p-3 rounded-xl bg-black/5 text-foreground group-hover/collaboration:bg-black/10 transition-colors flex-shrink-0">
-                <Users className="w-6 h-6" />
-              </div>
-              <div className="flex-1 min-w-0 w-full">
-                <h2 className="text-xl md:text-2xl font-semibold mb-4">
-                  {t("designer.collaboration.title")}
-                </h2>
-                <p className={`text-muted-foreground leading-relaxed text-sm opacity-100 md:opacity-0 ${expandedCards.has('collaboration') ? 'md:!opacity-100' : ''} transition-opacity duration-300`}>
-                  {t("designer.collaboration.content")}
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Learning - Regular */}
-          <section 
-            className="group/learning p-6 rounded-2xl border border-white/20 dark:border-white/10 bg-white/40 dark:bg-black/20 backdrop-blur-xl shadow-lg md:cursor-pointer md:col-span-1"
-            onMouseEnter={() => setExpandedCards(prev => new Set(prev).add('learning'))}
-            onClick={() => toggleCard('learning')}
-          >
-            <div className="flex flex-col items-start text-left gap-4">
-              <div className="p-3 rounded-xl bg-black/5 text-foreground group-hover/learning:bg-black/10 transition-colors flex-shrink-0">
-                <BookOpen className="w-6 h-6" />
-              </div>
-              <div className="flex-1 min-w-0 w-full">
-                <h2 className="text-xl md:text-2xl font-semibold mb-4">
-                  {t("designer.learning.title")}
-                </h2>
-                <p className={`text-muted-foreground leading-relaxed text-sm opacity-100 md:opacity-0 ${expandedCards.has('learning') ? 'md:!opacity-100' : ''} transition-opacity duration-300`}>
-                  {t("designer.learning.content")}
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Impact - Large (Last) */}
-          <section 
-            className="group/impact p-6 rounded-2xl border border-white/20 dark:border-white/10 bg-white/40 dark:bg-black/20 backdrop-blur-xl shadow-lg md:cursor-pointer md:col-span-4"
-            onMouseEnter={() => setExpandedCards(prev => new Set(prev).add('impact'))}
-            onClick={() => toggleCard('impact')}
-          >
-            <div className="flex flex-col items-start text-left gap-4">
-              <div className="p-3 rounded-xl bg-black/5 text-foreground group-hover/impact:bg-black/10 transition-colors flex-shrink-0">
-                <TrendingUp className="w-6 h-6" />
-              </div>
-              <div className="flex-1 min-w-0 w-full">
-                <h2 className="text-xl md:text-2xl font-semibold mb-4">
-                  {t("designer.impact.title")}
-                </h2>
-                <p className={`text-muted-foreground leading-relaxed text-sm opacity-100 md:opacity-0 ${expandedCards.has('impact') ? 'md:!opacity-100' : ''} transition-opacity duration-300`}>
-                  {t("designer.impact.content")}
-                </p>
-              </div>
-            </div>
-          </section>
+                <h3 className="pf-card-title mt-2 !text-[17px]">{t(`designer.work.${w.id}.title`)}</h3>
+                <p className="pf-lead mt-3 !text-[15px] flex-1">{t(`designer.work.${w.id}.body`)}</p>
+                <div className="mt-6 flex items-end justify-between gap-4">
+                  <ul className="flex flex-wrap gap-1.5">
+                    {Array.isArray(tags) && tags.map((tag) => <li key={tag} className="pf-tag">{tag}</li>)}
+                  </ul>
+                  <span className="pf-round" aria-hidden="true"><ArrowUpRight size={18} /></span>
+                </div>
+              </Link>
+            )
+          })}
         </div>
-      </div>
+      </section>
+
+      <section className="pf-reveal mt-24 md:mt-32">
+        <h2 className="pf-h3 mb-8">{t("designer.toolkit.title")}</h2>
+        <dl className="border-t border-border">
+          {Array.isArray(toolkit) && toolkit.map(({ label, items }) => (
+            <div key={label} className="grid gap-3 border-b border-border py-5 md:grid-cols-[200px_1fr] md:items-center">
+              <dt className="pf-eyebrow">{label}</dt>
+              <dd className="flex flex-wrap gap-1.5">
+                {items.map((s) => <span key={s} className="pf-tag">{s}</span>)}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <aside className="pf-reveal mt-24 md:mt-32 mb-24 md:mb-32 flex flex-col gap-6 border-t border-border pt-12 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h2 className="pf-h3">{t("designer.cta.title")}</h2>
+          <p className="pf-lead mt-2 max-w-[46ch]">{t("designer.cta.body")}</p>
+        </div>
+        <div className="flex shrink-0 gap-2">
+          <Link to="/portfolio" className="pf-btn">{t("developer.cta.work")}</Link>
+          <a href={contactHref(t("portfolio.emailSubject"))} className="pf-btn pf-btn--primary">{t("portfolio.getInTouch")}</a>
+        </div>
+      </aside>
     </div>
   )
 }

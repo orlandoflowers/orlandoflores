@@ -50,6 +50,7 @@ export function Header() {
     { labelKey: "navigation.home", path: "/" },
     { labelKey: "navigation.designer", path: "/designer" },
     { labelKey: "navigation.developer", path: "/developer" },
+    { labelKey: "navigation.portfolio", path: "/portfolio" },
     { labelKey: "navigation.contact", action: handleEmailClick },
   ]
 
@@ -76,7 +77,10 @@ export function Header() {
           </button>
 
           {/* Desktop Logo */}
-          <Link to="/" className="hidden md:block text-xl font-medium hover:text-primary transition-colors">
+          <Link to="/" className="hidden md:flex items-center gap-2.5 text-xl font-medium tracking-[-0.022em] hover:text-primary transition-colors">
+            <span className="avatar-squircle" style={{ width: 28, height: 28 }} aria-hidden="true">
+              <img src="/avatar-illustration.webp" alt="" width={28} height={28} />
+            </span>
             Orlando Flores
           </Link>
           

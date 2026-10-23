@@ -1,0 +1,114 @@
+/* Portfolio — styled after linear.app/features. Dark mode uses Linear's palette. */
+.pf {
+  --pf-card: #f5f5f6;
+  --pf-card-hover: #efeff1;
+  --pf-text: #08090a;
+  --pf-muted: #62666d;
+  --pf-line: rgb(0 0 0 / 0.07);
+  --pf-btn: #fff;
+  font-feature-settings: "cv01", "ss03";
+}
+.dark .pf {
+  --pf-card: #0f1011;
+  --pf-card-hover: #141516;
+  --pf-text: #f7f8f8;
+  --pf-muted: #8a8f98;
+  --pf-line: rgb(255 255 255 / 0.06);
+  --pf-btn: #1a1b1d;
+}
+.dark body:has(.pf) { background: #08090a; }
+
+.pf-h1 { font-size: clamp(40px, 6.4vw, 64px); font-weight: 510; letter-spacing: -0.022em; line-height: 1.06; color: var(--pf-text); text-wrap: balance; }
+.pf-h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 510; letter-spacing: -0.022em; line-height: 1.1; color: var(--pf-text); text-wrap: balance; }
+.pf-h3 { font-size: clamp(28px, 3.4vw, 40px); font-weight: 510; letter-spacing: -0.022em; line-height: 1.1; color: var(--pf-text); }
+.pf-lead { font-size: 17px; line-height: 1.6; color: var(--pf-muted); text-wrap: pretty; }
+.pf-meta { font-size: 13px; font-weight: 510; color: var(--pf-muted); }
+.pf-eyebrow { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 510; letter-spacing: -0.01em; line-height: 1.5; color: var(--pf-muted); }
+.pf-tag { display: inline-flex; align-items: center; height: 24px; padding: 0 8px; border-radius: 6px; font-size: 12px; font-weight: 510; color: var(--pf-muted); box-shadow: inset 0 0 0 1px var(--pf-line); }
+.pf-dot { width: 8px; height: 8px; flex: none; border-radius: 9999px; }
+
+.pf-btn {
+  display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border-radius: 9999px;
+  font-size: 14px; font-weight: 510; color: var(--pf-text); background: var(--pf-btn);
+  box-shadow: inset 0 0 0 1px var(--pf-line); transition: background-color .15s, opacity .15s;
+}
+.pf-btn:hover { background: var(--pf-card-hover); }
+.pf-btn--primary { background: var(--pf-text); color: var(--background); box-shadow: none; }
+.pf-btn--primary:hover { background: var(--pf-text); opacity: .88; }
+.pf-btn:focus-visible, .pf-chip:focus-visible { outline: 2px solid var(--pf-text); outline-offset: 2px; }
+
+.pf-chip {
+  display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 12px; border-radius: 9999px;
+  font-size: 13px; font-weight: 510; color: var(--pf-muted); background: var(--pf-card); cursor: pointer;
+  box-shadow: inset 0 0 0 1px var(--pf-line); transition: color .15s, background-color .15s, box-shadow .15s;
+}
+.pf-chip:hover { color: var(--pf-text); background: var(--pf-card-hover); }
+.pf-chip[aria-pressed="true"] { color: var(--background); background: var(--pf-text); box-shadow: none; }
+.pf-chip-count { font-size: 11px; font-variant-numeric: tabular-nums; opacity: .6; }
+
+.pf-card { border-radius: 16px; background: var(--pf-card); box-shadow: inset 0 0 0 1px var(--pf-line); transition: background-color .2s; }
+.pf-card:hover { background: var(--pf-card-hover); }
+.pf-card[data-tilt] { transition: background-color .2s, transform .5s cubic-bezier(0.22, 1, 0.36, 1); }
+.pf-card-label { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding: 18px 24px 22px; }
+.pf-card-title { display: block; margin-top: 2px; font-size: 15px; font-weight: 510; letter-spacing: -0.011em; line-height: 1.5; color: var(--pf-text); }
+.pf-round {
+  display: grid; place-items: center; width: 40px; height: 40px; flex: none; border-radius: 9999px;
+  color: var(--pf-text); box-shadow: inset 0 0 0 1px var(--pf-line); transition: transform .2s, background-color .2s;
+}
+/* "Enlarge" label beside the arrow on case-study cards: slides in on hover/focus, always shown on touch */
+.pf-hint {
+  font-size: 13px; font-weight: 510; color: var(--pf-text);
+  opacity: 0; transform: translateX(6px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+.group:hover .pf-hint, .group:focus-visible .pf-hint { opacity: 1; transform: none; }
+@media (hover: none) { .pf-hint { opacity: 1; transform: none; } }
+.group:hover .pf-round { background: var(--pf-btn); transform: translate(2px, -2px); }
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .pf-reveal { animation: pf-reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 30%; }
+    @keyframes pf-reveal { from { opacity: 0; transform: translateY(24px); } }
+  }
+}
+
+.project-bento { display: grid; gap: 16px; }
+.bento-case { min-width: 0; }
+.bento-media { min-width: 0; margin: 0; display: flex; flex-direction: column; overflow: hidden; }
+.bento-screen { aspect-ratio: var(--media-aspect); overflow: hidden; min-height: 0; }
+.bento-screen video, .bento-screen img { border-radius: 0; background: transparent; }
+@media (min-width: 768px) {
+  .project-bento { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  .bento-case { grid-area: study; }
+  .bento-media { grid-area: var(--media-area); }
+  .bento-screen { flex: 1; aspect-ratio: auto; }
+  .bento-screen video { object-fit: contain; }
+  .project-bento--searchbrand {
+    grid-template-areas: 'study study study study study study study study mobile mobile mobile mobile' 'desktop desktop desktop desktop desktop desktop desktop desktop mobile mobile mobile mobile' 'marquee marquee marquee marquee marquee marquee marquee marquee marquee marquee marquee marquee';
+    grid-template-rows: clamp(280px, 28vw, 360px) clamp(280px, 28vw, 360px) clamp(340px, 42vw, 530px);
+  }
+  .project-bento--socratia {
+    grid-template-areas: 'study study study study study study study journey journey journey journey journey' 'talk talk talk talk talk talk talk moods moods moods moods moods';
+    grid-template-rows: repeat(2, clamp(300px, 34vw, 440px));
+  }
+  .project-bento--betterfly {
+    grid-template-areas: 'study study study study study study study home home home home home' 'study study study study study study study onboarding onboarding onboarding onboarding onboarding' 'system system system system system system system system system system system system';
+    grid-template-rows: clamp(280px, 28vw, 360px) clamp(280px, 28vw, 360px) clamp(340px, 42vw, 530px);
+  }
+  .project-bento--betterfly .bento-screen video { object-fit: cover; }
+}
+@media (min-width: 768px) {
+  .project-bento--audienceview {
+    grid-template-areas: 'checkout-flow checkout-flow checkout-flow checkout-flow checkout-flow checkout-flow checkout-flow checkout-flow checkout-flow checkout-flow checkout-flow checkout-flow';
+  }
+  .project-bento--audienceview .bento-screen { flex: none; aspect-ratio: var(--media-aspect); }
+}
+.project-bento--audioswitch .bento-screen { background: #000; }
+.dark .project-bento--audioswitch .pf-card { background: #000; }
+.project-bento--audioswitch .bento-screen video { object-fit: contain; background: #000; }
+@media (min-width: 768px) {
+  .project-bento--audioswitch {
+    grid-template-areas: 'switcher switcher switcher switcher switcher switcher settings settings settings settings settings settings';
+    grid-template-rows: clamp(320px, 38vw, 520px);
+  }
+}

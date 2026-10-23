@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 const navigationItems = [
   { nameKey: "navigation.designer", href: '/designer' },
   { nameKey: "navigation.developer", href: '/developer' },
+  { nameKey: "navigation.portfolio", href: '/portfolio' },
 ]
 
 export function Navigation() {

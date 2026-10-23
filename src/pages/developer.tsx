@@ -1,184 +1,120 @@
 import { useTranslation } from "react-i18next"
-import { Code2, Terminal, Database, Boxes, GitBranch, Rocket, Zap } from "lucide-react"
-import { useState } from "react"
+import { contactHref } from "@/lib/contact"
+import { Link } from "react-router-dom"
+import { ArrowUpRight } from "lucide-react"
+import { isCommission } from "@/data/projects"
+
+// Same Linear-style tokens and components as the portfolio page
+import "./portfolio.css"
+
+const builds = [
+  {
+    id: "searchbrand",
+    company: "Searchbrand.AI",
+    accent: "#4ea7fc",
+    stack: ["Next.js", "TypeScript", "Drizzle", "PostgreSQL", "Hono", "Cloud Run", "LangChain", "Stripe", "BigQuery"],
+  },
+  {
+    id: "socratia",
+    company: "Socratia",
+    accent: "#f2994a",
+    stack: ["Next.js", "React 19", "Supabase", "Anthropic", "Zod", "Playwright"],
+  },
+  {
+    id: "audioswitch",
+    company: "AudioSwitch",
+    accent: "#4cb7a5",
+    stack: ["Swift", "SwiftUI", "AppKit", "CoreAudio", "XCTest"],
+  },
+]
+
+const principles = ["loop", "typed", "ship", "ai"] as const
+
+// Tool names stay untranslated
+const stack: { group: string; items: string[] }[] = [
+  { group: "frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vite"] },
+  { group: "backend", items: ["Node.js", "Python", "Hono", "PostgreSQL", "Drizzle ORM", "Supabase"] },
+  { group: "ai", items: ["LangChain", "Vertex AI · Gemini", "OpenAI", "Anthropic"] },
+  { group: "cloud", items: ["Cloud Run", "Cloud Tasks", "Pub/Sub", "BigQuery", "GitHub Actions"] },
+  { group: "native", items: ["Swift", "SwiftUI", "AppKit", "CoreAudio"] },
+  { group: "quality", items: ["Vitest", "Playwright", "XCTest"] },
+]
 
 export function DeveloperPage() {
   const { t } = useTranslation()
-  const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set())
-
-  const toggleCard = (cardName: string) => {
-    setExpandedCards(prev => {
-      const newSet = new Set(prev)
-      if (newSet.has(cardName)) {
-        newSet.delete(cardName)
-      } else {
-        newSet.add(cardName)
-      }
-      return newSet
-    })
-  }
 
   return (
-    <div className="container mx-auto px-6 py-12">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-mono">{t("developer.title")}</h1>
-          <p className="text-xl text-muted-foreground font-mono">
-            {t("developer.intro")}
-          </p>
+    <div className="pf w-full max-w-[1120px] mx-auto px-6">
+      <header className="pf-reveal mt-16 md:mt-28 mx-auto max-w-[760px] text-center">
+        <span data-tilt className="holo avatar-squircle mx-auto mb-8 rotate-[4deg]">
+          <img src="/avatar-illustration.webp" alt="" width={104} height={104} />
+        </span>
+        <p className="pf-eyebrow justify-center mb-6">
+          <span className="pf-dot" style={{ background: "#68cc58" }} />
+          {t("developer.title")}
+        </p>
+        <h1 className="pf-h1">{t("developer.headline")}</h1>
+        <p className="pf-lead mt-6 mx-auto max-w-[560px]">{t("developer.intro")}</p>
+      </header>
+
+      <section className="pf-reveal mt-24 md:mt-32">
+        <h2 className="pf-h3 mb-8">{t("developer.builds.title")}</h2>
+        <div className="grid gap-4 md:grid-cols-3">
+          {builds.map((b) => (
+            <Link key={b.id} to={`/portfolio#${b.id}`} data-tilt className="pf-card group flex flex-col p-6 md:p-7">
+              <p className="pf-eyebrow">
+                <span className="pf-dot" style={{ background: b.accent }} />
+                {b.company}
+                {isCommission(b.id) && <span className="pf-tag !h-5 !text-[11px]">{t("portfolio.commission")}</span>}
+              </p>
+              <h3 className="pf-card-title mt-2 !text-[17px]">{t(`developer.builds.${b.id}.title`)}</h3>
+              <p className="pf-lead mt-3 !text-[15px] flex-1">{t(`developer.builds.${b.id}.body`)}</p>
+              <ul className="mt-6 flex flex-wrap gap-1.5" aria-label={t("developer.stack.title")}>
+                {b.stack.map((s) => <li key={s} className="pf-tag">{s}</li>)}
+              </ul>
+              <span className="pf-round mt-6 self-end" aria-hidden="true"><ArrowUpRight size={18} /></span>
+            </Link>
+          ))}
         </div>
+      </section>
 
-        {/* Content Sections - Bento Grid (Flipped) */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[minmax(200px,auto)]">
-          {/* Delivery - Large (First, flipped from Impact) */}
-          <section 
-            className="group/delivery p-6 rounded-2xl border border-green-500/20 bg-white/40 dark:bg-[#1e1e1e] backdrop-blur-xl shadow-lg md:cursor-pointer md:col-span-4"
-            onMouseEnter={() => setExpandedCards(prev => new Set(prev).add('delivery'))}
-            onClick={() => toggleCard('delivery')}
-          >
-            <div className="flex flex-col items-start text-left gap-4">
-              <div className="p-3 rounded-xl bg-green-500/10 text-green-600 dark:text-green-400 group-hover/delivery:bg-green-500 group-hover/delivery:text-white transition-colors flex-shrink-0">
-                <Rocket className="w-6 h-6" />
-              </div>
-              <div className="flex-1 min-w-0 w-full">
-                <h2 className="text-xl md:text-2xl font-semibold mb-4 font-mono text-green-600 dark:text-green-400">
-                  {t("developer.delivery.title")}
-                </h2>
-                <p className={`text-muted-foreground leading-relaxed text-sm font-mono opacity-100 md:opacity-0 ${expandedCards.has('delivery') ? 'md:!opacity-100' : ''} transition-opacity duration-300`}>
-                  {t("developer.delivery.content")}
-                </p>
-              </div>
+      <section className="pf-reveal mt-24 md:mt-32">
+        <h2 className="pf-h3 mb-8">{t("developer.principles.title")}</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          {principles.map((p, i) => (
+            <div key={p} className="pf-card p-6 md:p-7">
+              <p className="pf-eyebrow tabular-nums">0{i + 1}</p>
+              <h3 className="pf-card-title mt-2 !text-[17px]">{t(`developer.principles.${p}.title`)}</h3>
+              <p className="pf-lead mt-2 !text-[15px]">{t(`developer.principles.${p}.body`)}</p>
             </div>
-          </section>
-
-          {/* Mindset - Regular */}
-          <section 
-            className="group/mindset p-6 rounded-2xl border border-blue-500/20 bg-white/40 dark:bg-[#1e1e1e] backdrop-blur-xl shadow-lg md:cursor-pointer md:col-span-1"
-            onMouseEnter={() => setExpandedCards(prev => new Set(prev).add('mindset'))}
-            onClick={() => toggleCard('mindset')}
-          >
-            <div className="flex flex-col items-start text-left gap-4">
-              <div className="p-3 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 group-hover/mindset:bg-blue-500 group-hover/mindset:text-white transition-colors flex-shrink-0">
-                <Zap className="w-6 h-6" />
-              </div>
-              <div className="flex-1 min-w-0 w-full">
-                <h2 className="text-xl md:text-2xl font-semibold mb-4 font-mono text-blue-600 dark:text-blue-400">
-                  {t("developer.mindset.title")}
-                </h2>
-                <p className={`text-muted-foreground leading-relaxed text-sm font-mono opacity-100 md:opacity-0 ${expandedCards.has('mindset') ? 'md:!opacity-100' : ''} transition-opacity duration-300`}>
-                  {t("developer.mindset.content")}
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Backend - Wide */}
-          <section 
-            className="group/backend p-6 rounded-2xl border border-purple-500/20 bg-white/40 dark:bg-[#1e1e1e] backdrop-blur-xl shadow-lg md:cursor-pointer md:col-span-2"
-            onMouseEnter={() => setExpandedCards(prev => new Set(prev).add('backend'))}
-            onClick={() => toggleCard('backend')}
-          >
-            <div className="flex flex-col items-start text-left gap-4">
-              <div className="p-3 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 group-hover/backend:bg-purple-500 group-hover/backend:text-white transition-colors flex-shrink-0">
-                <Database className="w-6 h-6" />
-              </div>
-              <div className="flex-1 min-w-0 w-full">
-                <h2 className="text-xl md:text-2xl font-semibold mb-4 font-mono text-purple-600 dark:text-purple-400">
-                  {t("developer.backend.title")}
-                </h2>
-                <p className={`text-muted-foreground leading-relaxed text-sm font-mono opacity-100 md:opacity-0 ${expandedCards.has('backend') ? 'md:!opacity-100' : ''} transition-opacity duration-300`}>
-                  {t("developer.backend.content")}
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Frontend - Regular */}
-          <section 
-            className="group/frontend p-6 rounded-2xl border border-cyan-500/20 bg-white/40 dark:bg-[#1e1e1e] backdrop-blur-xl shadow-lg md:cursor-pointer md:col-span-1"
-            onMouseEnter={() => setExpandedCards(prev => new Set(prev).add('frontend'))}
-            onClick={() => toggleCard('frontend')}
-          >
-            <div className="flex flex-col items-start text-left gap-4">
-              <div className="p-3 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 group-hover/frontend:bg-cyan-500 group-hover/frontend:text-white transition-colors flex-shrink-0">
-                <Code2 className="w-6 h-6" />
-              </div>
-              <div className="flex-1 min-w-0 w-full">
-                <h2 className="text-xl md:text-2xl font-semibold mb-4 font-mono text-cyan-600 dark:text-cyan-400">
-                  {t("developer.frontend.title")}
-                </h2>
-                <p className={`text-muted-foreground leading-relaxed text-sm font-mono opacity-100 md:opacity-0 ${expandedCards.has('frontend') ? 'md:!opacity-100' : ''} transition-opacity duration-300`}>
-                  {t("developer.frontend.content")}
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Products - Regular */}
-          <section 
-            className="group/products p-6 rounded-2xl border border-yellow-500/20 bg-white/40 dark:bg-[#1e1e1e] backdrop-blur-xl shadow-lg md:cursor-pointer md:col-span-1"
-            onMouseEnter={() => setExpandedCards(prev => new Set(prev).add('products'))}
-            onClick={() => toggleCard('products')}
-          >
-            <div className="flex flex-col items-start text-left gap-4">
-              <div className="p-3 rounded-xl bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 group-hover/products:bg-yellow-500 group-hover/products:text-white transition-colors flex-shrink-0">
-                <Boxes className="w-6 h-6" />
-              </div>
-              <div className="flex-1 min-w-0 w-full">
-                <h2 className="text-xl md:text-2xl font-semibold mb-4 font-mono text-yellow-600 dark:text-yellow-400">
-                  {t("developer.products.title")}
-                </h2>
-                <p className={`text-muted-foreground leading-relaxed text-sm font-mono opacity-100 md:opacity-0 ${expandedCards.has('products') ? 'md:!opacity-100' : ''} transition-opacity duration-300`}>
-                  {t("developer.products.content")}
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Approach - Regular */}
-          <section 
-            className="group/approach p-6 rounded-2xl border border-orange-500/20 bg-white/40 dark:bg-[#1e1e1e] backdrop-blur-xl shadow-lg md:cursor-pointer md:col-span-1"
-            onMouseEnter={() => setExpandedCards(prev => new Set(prev).add('approach'))}
-            onClick={() => toggleCard('approach')}
-          >
-            <div className="flex flex-col items-start text-left gap-4">
-              <div className="p-3 rounded-xl bg-orange-500/10 text-orange-600 dark:text-orange-400 group-hover/approach:bg-orange-500 group-hover/approach:text-white transition-colors flex-shrink-0">
-                <GitBranch className="w-6 h-6" />
-              </div>
-              <div className="flex-1 min-w-0 w-full">
-                <h2 className="text-xl md:text-2xl font-semibold mb-4 font-mono text-orange-600 dark:text-orange-400">
-                  {t("developer.approach.title")}
-                </h2>
-                <p className={`text-muted-foreground leading-relaxed text-sm font-mono opacity-100 md:opacity-0 ${expandedCards.has('approach') ? 'md:!opacity-100' : ''} transition-opacity duration-300`}>
-                  {t("developer.approach.content")}
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Stack - Wide */}
-          <section 
-            className="group/stack p-6 rounded-2xl border border-emerald-500/20 bg-white/40 dark:bg-[#1e1e1e] backdrop-blur-xl shadow-lg md:cursor-pointer md:col-span-2"
-            onMouseEnter={() => setExpandedCards(prev => new Set(prev).add('stack'))}
-            onClick={() => toggleCard('stack')}
-          >
-            <div className="flex flex-col items-start text-left gap-4">
-              <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 group-hover/stack:bg-emerald-500 group-hover/stack:text-white transition-colors flex-shrink-0">
-                <Terminal className="w-6 h-6" />
-              </div>
-              <div className="flex-1 min-w-0 w-full">
-                <h2 className="text-xl md:text-2xl font-semibold mb-4 font-mono text-emerald-600 dark:text-emerald-400">
-                  {t("developer.stack.title")}
-                </h2>
-                <p className={`text-muted-foreground leading-relaxed text-sm font-mono opacity-100 md:opacity-0 ${expandedCards.has('stack') ? 'md:!opacity-100' : ''} transition-opacity duration-300`}>
-                  {t("developer.stack.content")}
-                </p>
-              </div>
-            </div>
-          </section>
+          ))}
         </div>
-      </div>
+      </section>
+
+      <section className="pf-reveal mt-24 md:mt-32">
+        <h2 className="pf-h3 mb-8">{t("developer.stack.title")}</h2>
+        <dl className="border-t border-border">
+          {stack.map(({ group, items }) => (
+            <div key={group} className="grid gap-3 border-b border-border py-5 md:grid-cols-[200px_1fr] md:items-center">
+              <dt className="pf-eyebrow">{t(`developer.stack.${group}`)}</dt>
+              <dd className="flex flex-wrap gap-1.5">
+                {items.map((s) => <span key={s} className="pf-tag">{s}</span>)}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <aside className="pf-reveal mt-24 md:mt-32 mb-24 md:mb-32 flex flex-col gap-6 border-t border-border pt-12 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h2 className="pf-h3">{t("developer.cta.title")}</h2>
+          <p className="pf-lead mt-2 max-w-[46ch]">{t("developer.cta.body")}</p>
+        </div>
+        <div className="flex shrink-0 gap-2">
+          <Link to="/portfolio" className="pf-btn">{t("developer.cta.work")}</Link>
+          <a href={contactHref(t("portfolio.emailSubject"))} className="pf-btn pf-btn--primary">{t("portfolio.getInTouch")}</a>
+        </div>
+      </aside>
     </div>
   )
 }

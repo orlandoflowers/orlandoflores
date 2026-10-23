@@ -1,15 +1,10 @@
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { skillKeys, useSkills } from "@/lib/skill-context"
-import { useState, useEffect } from "react"
-import confetti from 'canvas-confetti'
+import { useEffect } from "react"
 import { useTranslation } from "react-i18next"
-import { TypingText } from "@/components/ui/typing-text"
+import { ArrowUpRight } from "lucide-react"
+import { contactHref } from "@/lib/contact"
+import { RotatingText } from "@/components/ui/rotating-text"
 
 export function Hero() {
-  const { selectedSkills, toggleSkill } = useSkills()
-  const [isHovered, setIsHovered] = useState(false)
-  const [isShaking, setIsShaking] = useState(false)
   const { t } = useTranslation()
   
   // Get descriptions array from translations
@@ -27,78 +22,27 @@ export function Hero() {
     };
     
     // La otra imagen: prioridad baja (como cuando deci "mañana hago ejercicio" pero sabí que no) 🏃‍♂️
-    const imgPortfolio = new Image();
-    imgPortfolio.src = '/portfolio.webp';
-    imgPortfolio.fetchPriority = 'low';
-  }, []);
-
-  // ¡Animación continua suave! Solo shake elegante, sin rebotes dramáticos 🎪
-  useEffect(() => {
-    // Start continuous shaking after small delay
-    const initialDelay = 1000; // 1 second to start shaking
-    
-    const timer = setTimeout(() => {
-      setIsShaking(true);
-    }, initialDelay);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const getButtonText = () => {
-    if (selectedSkills.length === 0) {
-      return isHovered ? t("hero.contactHover") : t("hero.contactButton")
+    // Only shown from xl (1280px) up, so don't fetch it on smaller screens
+    if (window.matchMedia('(min-width: 1280px)').matches) {
+      const imgPortfolio = new Image();
+      imgPortfolio.src = '/portfolio.webp';
+      imgPortfolio.fetchPriority = 'low';
     }
-    return isHovered 
-      ? t("hero.contactWithSkill", { skill: selectedSkills[0] }) 
-      : t("hero.contactButton")
-  }
+  }, []);
 
+  // Same "Get in touch" as the portfolio: a plain email link, tracked in Clarity
   const handleEmailClick = () => {
-    // Le contamos al Clarity que alguien quiere mandar un mail (¡posible peguita a la vista!) 💼
-    if (window.clarity) {
-      window.clarity("event", "email_click", {
-        skill: selectedSkills.length > 0 ? selectedSkills[0] : "none"
-      });
-    }
-
-    // ¡Tirando confeti po! Porque un clic sin confeti es como un completo sin palta 🎉
-    confetti({
-      particleCount: 200,
-      spread: 180,
-      angle: 90,
-      origin: { y: 0.6 },
-      gravity: 0.4,
-      decay: 0.94,
-      startVelocity: 30,
-      scalar: 1.2,
-      ticks: 600,
-    });
-
-    // ¡Correo al vuelo! Ojalá no caiga en spam o estamos fritos 🤞
-    const subject = selectedSkills.length > 0 
-      ? t("email.subjectWithSkill", { skill: selectedSkills[0] })
-      : t("email.subject");
-    
-    const body = selectedSkills.length > 0 
-      ? t("email.bodyWithSkill", { skill: selectedSkills[0] })
-      : t("email.body");
-
-    window.location.href = `mailto:of@orlandoflores.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
-
-  const handleSkillClick = (skill: string) => {
-    toggleSkill(skill);
-    // Sapéandote las habilidades que te interesan (pa' cachar no más, típico chileno) 👀
-    window.clarity?.('track', 'skillSelected', { skill });
-  };
+    window.clarity?.("event", "email_click", { source: "home" })
+  }
 
   return (
     <section className="h-[calc(100dvh-4rem)] md:h-[60vh] flex items-center overflow-visible justify-center px-4 bg-background text-foreground">
       <div className="w-full mx-auto flex flex-col md:flex-row overflow-visible items-start md:items-center justify-start md:justify-center gap-6 md:gap-12">
         <div className="flex flex-col md:flex-row items-start md:items-start overflow-visible gap-6 md:gap-12 w-full md:w-auto">
           <div className="shrink-0">
+            {/* Hovering swaps the photo for the illustrated avatar used on the other pages */}
             <div 
-              className="w-28 h-28 md:w-48 md:h-48 aspect-square profile-image-container overflow-visible"
+              className="group relative w-28 h-28 md:w-48 md:h-48 aspect-square profile-image-container overflow-visible"
             >
               <img 
                 src="/profile.webp" 
@@ -107,63 +51,40 @@ export function Hero() {
                 height="192"
                 fetchPriority="high"
                 loading="eager"
-                className="w-full h-full object-cover profile-image" 
+                className="w-full h-full object-cover profile-image transition duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 motion-reduce:transition-none" 
               />
+              <span
+                aria-hidden="true"
+                className="avatar-squircle absolute inset-0 opacity-0 scale-95 transition duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 motion-reduce:transition-none"
+                style={{ width: "100%", height: "100%" }}
+              >
+                <img src="/avatar-illustration.webp" alt="" width={192} height={192} decoding="async" />
+              </span>
             </div>
           </div>
           <div className="flex flex-col gap-6 md:gap-4 max-w-2xl text-left">
-            <h1 className="text-3xl md:text-6xl font-medium leading-tight h-[120px] md:h-[216px] flex items-start">
-              <TypingText 
-                texts={descriptions}
-                typingSpeed={50}
-                deletingSpeed={30}
-                pauseDuration={2000}
-              />
+            {/* Always 2–3 lines: max-w caps the measure (no phrase fits on one line), and the
+                fluid phone size keeps the column ≥ ~13.5em so the longest phrase needs ≤ 3 lines */}
+            <h1 className="max-w-[19em] text-[clamp(21px,6.6vw,26px)] leading-[1.2] md:text-[40px] md:leading-[1.15] xl:text-5xl xl:leading-[1.1] font-medium">
+              <RotatingText texts={descriptions} stagger={70} pauseDuration={2600} />
             </h1>
-            <div className="mt-1 md:mt-2">
-              <p className="text-muted-foreground mb-2 text-sm md:text-base">{t("hero.contactHelp")}</p>
-              <div className="flex flex-wrap gap-2 md:gap-4 justify-start">
-                {skillKeys.map((skillKey: string, index: number) => {
-                  const translatedSkill = t(skillKey);
-                  return (
-                    <Badge
-                      key={index}
-                      variant={selectedSkills.includes(translatedSkill) ? "default" : "outline"}
-                      className={`
-                        px-2 md:px-3 py-1 md:py-1 rounded-full text-sm md:text-sm cursor-pointer transition-colors
-                        ${selectedSkills.includes(translatedSkill) 
-                          ? "bg-primary text-primary-foreground hover:bg-primary/90" 
-                          : "bg-muted hover:bg-muted/80"
-                        }
-                      `}
-                      onClick={() => {
-                        handleSkillClick(translatedSkill);
-                      }}
-                    >
-                      {translatedSkill}
-                    </Badge>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="mt-3 md:mt-4 flex justify-start">
-              <Button
+            <div className="pf mt-1 md:mt-2 flex flex-wrap items-center gap-2">
+              <a
                 id="button-email-me"
                 data-umami-event="cta-email-me"
-                className={`
-                  rounded-full px-8 py-6 md:py-3 w-full md:w-auto cursor-pointer text-base md:text-lg font-medium contact-button
-                  ${isShaking && !isHovered ? 'shake-continuous' : ''}
-                `}
+                href={contactHref(t("portfolio.emailSubject"))}
                 onClick={handleEmailClick}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+                className="pf-btn pf-btn--primary"
               >
-                {getButtonText()}
-              </Button>
+                {t("portfolio.getInTouch")}
+              </a>
+              <a href="https://www.linkedin.com/in/orflores" target="_blank" rel="noopener noreferrer" className="pf-btn">
+                LinkedIn <ArrowUpRight size={14} aria-hidden="true" />
+              </a>
             </div>
           </div>
         </div>
-        <div className="superellipse-rounded hidden md:block overflow-hidden transition-all duration-700 ease-in-out h-[550px] w-[400px]" style={{ contain: 'layout paint' }}>
+        <div className="superellipse-rounded hidden xl:block overflow-hidden transition-all duration-700 ease-in-out h-[550px] w-[400px]" style={{ contain: 'layout paint' }}>
           <img 
             src="/portfolio.webp" 
             alt="Portfolio item"

@@ -4,18 +4,18 @@
   },
   "navigation": {
     "home": "Home",
+    "portfolio": "Portfolio",
     "designer": "I'm a Designer",
-    "developer": "I'm a Developer",
+    "developer": "I'm a Software Engineer",
     "contact": "Contact"
   },
   "hero": {
     "greeting": "",
     "name": "",
     "descriptions": [
+      "Product Engineer who designs and develops end-to-end products.",
       "Product Designer that bridges UX/UI and Business Metrics.",
-      "Full Stack Developer that takes your design into production grade code.",
-      "Product Builder."
-      
+      "Software Engineer who takes your design into production-grade code."
     ],
     "contactButton": "Contact me",
     "contactHover": "Contact me now 🚀",
@@ -30,17 +30,35 @@
   },
   "experience": {
     "title": "Experience",
+    "flipHint": "Tap for details",
+    "cards": {
+      "wetechnologies": "Product design for IoT and AI products.",
+      "betterfly": "Challenges design system, home and onboarding for a wellness app.",
+      "foris": "Product design for AI-powered education.",
+      "ripley": "Product design for digital banking.",
+      "audienceview": "The Unlimited checkout: seat maps, price types and payment."
+    },
+    "commissionCards": {
+      "searchbrand": "Tracks how brands show up in AI answers, with dashboards.",
+      "socratia": "An AI tutor that teaches through questions, with voice classes.",
+      "ifert": "Dashboards for 100+ SMAPA sensors in Maipú: AWS data, alerts and a PWA.",
+      "ceve": "CV builder with PDF import, ATS templates and an application tracker.",
+      "macos": "Native Swift apps: AudioSwitch, Schedulizer and Ridding."
+    },
     "period": "{{startDate}} - {{endDate}}",
     "present": "Present",
     "location": "{{city}}, {{country}}"
   },
   "footer": {
-    "copyright": "© 2025 Orlando Flores. All rights reserved. Interested in collaborating? Let's talk! | Looking for a developer? I can help you, I'm a developer too!"
+    "copyright": "© 2025 Orlando Flores. All rights reserved. Interested in collaborating? Let's talk! | Looking for a software engineer? I can help, I'm one too!"
   },
   "language": {
     "en": "English",
     "es": "Spanish",
-    "fr": "French"
+    "fr": "French",
+    "switch_to_en": "Switch to English",
+    "switch_to_es": "Switch to Spanish",
+    "switch_to_fr": "Switch to French"
   },
   "email": {
     "subject": "Design Inquiry",
@@ -50,66 +68,238 @@
   },
   "designer": {
     "title": "I'm a Designer",
-    "intro": "Design is my way of solving problems and creating experiences that truly matter.",
-    "philosophy": {
-      "title": "My Philosophy",
-      "content": "I believe in design as a tool for transformation. My approach centers on deeply understanding people: their needs and aspirations. Every design decision must have a clear purpose backed by research and empathy."
+    "headline": "I can design things",
+    "intro": "I design products end to end, from research and flows to interfaces and design systems, and I test the decisions in code with real data.",
+    "work": {
+      "title": "Selected work",
+      "searchbrand": {
+        "title": "Making AI visibility legible",
+        "body": "A six-step onboarding that sets up the brand, then dashboards that turn LLM answers into metrics a marketing team can act on, on desktop and mobile.",
+        "tags": [
+          "Onboarding",
+          "Dashboards",
+          "Web & mobile"
+        ]
+      },
+      "socratia": {
+        "title": "A tutor with a personality",
+        "body": "Delfí, a character with sixteen moods, plus voice classes and a learning journey that teaches through questions instead of answers.",
+        "tags": [
+          "Character design",
+          "Voice UX",
+          "Learning"
+        ]
+      },
+      "audienceview": {
+        "title": "Checkout for live events",
+        "body": "Picking seats on the venue map, choosing price types and paying, for venues and performing arts organizations across the US, Canada and the UK.",
+        "tags": [
+          "Checkout",
+          "Interaction design",
+          "Web"
+        ]
+      },
+      "betterfly": {
+        "title": "A design system for healthy habits",
+        "body": "Challenge components, the home screen and onboarding for an app that turns healthy habits into life-insurance coverage and donations.",
+        "tags": [
+          "Design system",
+          "Mobile",
+          "Onboarding"
+        ]
+      }
     },
-    "process": {
-      "title": "My Process",
-      "content": "My process is iterative and collaborative. I start with deep research and data analysis. I prototype quickly to validate ideas early. I work closely with developers and users throughout the entire process."
+    "principles": {
+      "title": "How I work",
+      "problem": {
+        "title": "Start from the problem, not the screen",
+        "body": "Research, data and conversations with users and stakeholders come first. Every design decision should trace back to something we learned."
+      },
+      "prototype": {
+        "title": "Prototype early, in code when it matters",
+        "body": "Quick prototypes validate flows before polish. Code prototypes test them against real data, real content and edge cases."
+      },
+      "systems": {
+        "title": "Systems over screens",
+        "body": "Components, tokens and patterns teams can reuse, so the product stays consistent as it grows."
+      },
+      "measure": {
+        "title": "Measure what changes",
+        "body": "Designs are tied to product metrics, so after launch we know what worked and what to iterate on."
+      }
     },
-    "vision": {
-      "title": "My Vision",
-      "content": "I aspire to create products that genuinely improve people's lives. I want to design experiences so intuitive they go unnoticed. My vision is to democratize access to quality digital experiences."
+    "toolkit": {
+      "title": "Toolkit",
+      "groups": [
+        {
+          "label": "Research",
+          "items": [
+            "User interviews",
+            "Usability testing",
+            "Product analytics"
+          ]
+        },
+        {
+          "label": "Product design",
+          "items": [
+            "User flows",
+            "Wireframes",
+            "UI design",
+            "Interaction design"
+          ]
+        },
+        {
+          "label": "Systems",
+          "items": [
+            "Design tokens",
+            "Component libraries",
+            "Documentation"
+          ]
+        },
+        {
+          "label": "Prototyping",
+          "items": [
+            "Figma",
+            "Framer",
+            "React",
+            "SwiftUI"
+          ]
+        }
+      ]
     },
-    "tools": {
-      "title": "Tools",
-      "content": "Figma, Sketch, Adobe XD, Principle, Framer. Mastery of interactive prototyping and scalable design systems."
-    },
-    "collaboration": {
-      "title": "Collaboration",
-      "content": "Multidisciplinary teamwork. Effective communication with developers, product managers, and stakeholders."
-    },
-    "impact": {
-      "title": "Impact",
-      "content": "Designs that generate measurable results. Focus on user metrics and continuous data-driven improvement."
-    },
-    "learning": {
-      "title": "Learning",
-      "content": "Always exploring new trends, technologies, and methodologies. Design is constantly evolving."
+    "cta": {
+      "title": "Have something to design?",
+      "body": "From a first flow to a full design system, and I can build it too."
     }
   },
   "developer": {
-    "title": "I'm a Developer",
-    "intro": "I build digital products with clean code and scalable architectures.",
+    "title": "I'm a Software Engineer",
+    "headline": "I can build things",
+    "intro": "I take products from an empty repo to production: frontend, backend, data and AI, plus native apps when the product calls for one.",
+    "builds": {
+      "title": "Built recently",
+      "searchbrand": {
+        "title": "Multi-LLM brand monitoring SaaS",
+        "body": "A Turborepo monorepo: a Next.js app, a typed domain core on Drizzle and PostgreSQL, and Hono workers on Cloud Run that query Gemini, OpenAI, Anthropic and Perplexity through async queues."
+      },
+      "socratia": {
+        "title": "AI tutor with voice classes",
+        "body": "A Next.js and Supabase app that teaches through questions instead of answers, with Claude-powered conversations and end-to-end tests in Playwright."
+      },
+      "audioswitch": {
+        "title": "Native macOS utility",
+        "body": "A menu-bar app in Swift that switches audio devices with a ⌘Tab-style shortcut, built on CoreAudio, AppKit and SwiftUI with zero dependencies."
+      }
+    },
+    "principles": {
+      "title": "How I work",
+      "loop": {
+        "title": "Design and code in one loop",
+        "body": "I prototype in code, so design decisions meet real data and real constraints early, not at handoff."
+      },
+      "typed": {
+        "title": "I can React to Python, or just get Swiftie",
+        "body": "Web, backend or native, I pick up whatever the product needs and get productive fast: TypeScript and React, Python services, or Swift for Apple platforms."
+      },
+      "ship": {
+        "title": "Ship small, ship often",
+        "body": "Development, staging, production. Small releases through CI, measured, then iterated."
+      },
+      "ai": {
+        "title": "AI inside the product",
+        "body": "LLMs, voice and background workers wired into real product flows, with queues, retries and usage tracking. Not demos."
+      }
+    },
     "stack": {
       "title": "Stack",
-      "content": "React, TypeScript, Next.js, Node.js. Expert in Supabase, PostgreSQL and serverless architectures."
+      "frontend": "Frontend",
+      "backend": "Backend & data",
+      "ai": "AI",
+      "cloud": "Cloud & CI",
+      "native": "Native",
+      "quality": "Testing"
     },
-    "approach": {
-      "title": "Approach",
-      "content": "Clean code, rigorous testing, and clear documentation. I prioritize maintainability and scalability in every line."
+    "cta": {
+      "title": "Have something to build?",
+      "body": "From a first prototype to a production system, I can own it end to end.",
+      "work": "See the work"
+    }
+  },
+  "portfolio": {
+    "emailSubject": "Hello from your website",
+    "getInTouch": "Get in touch",
+    "caseStudy": {"title": "Case study", "open": "Read case study", "close": "Close case study", "enlarge": "Enlarge"},
+    "role": "Product Engineer",
+    "bio": "Welcome to my portfolio, a sneak peek at my work. There's more, but we do have to prioritize.",
+    "cta": {"title": "Let's build something together.", "body": "Have an idea, a product or a feature that needs someone to design and build it end to end?"},
+    "commission": "Freelance",
+    "filterLabel": "Filter projects",
+    "filters": {
+      "all": "All",
+      "work": "Work",
+      "commission": "Freelance",
+      "personal": "Side projects",
+      "ai": "AI",
+      "mobile": "Mobile",
+      "web": "Web",
+      "native": "Native",
+      "voice": "Voice",
+      "design-system": "Design systems",
+      "case-study": "Case studies"
     },
-    "products": {
-      "title": "Products",
-      "content": "Built complete web platforms from scratch. From MVPs to enterprise systems with thousands of users."
-    },
-    "frontend": {
-      "title": "Frontend",
-      "content": "Forever curious about React and the JS ecosystem. Reusable components, performance optimization, and smooth UX."
-    },
-    "backend": {
-      "title": "Backend",
-      "content": "RESTful and GraphQL APIs. Supabase expert: auth, real-time, edge functions. Relational and NoSQL databases."
-    },
-    "mindset": {
-      "title": "Mindset",
-      "content": "Always learning new libraries and frameworks. Web development evolves fast and I love staying current."
-    },
-    "delivery": {
-      "title": "Delivery",
-      "content": "Code in development, staging and production. Iterate, test, deploy."
+    "projects": {
+      "audienceview": {
+        "media": {
+          "checkout-flow": "Checkout · Seat selection to purchase"
+        },
+        "name": "Ticketing Platform",
+        "description": [
+          "AudienceView powers ticketing for venues and performing arts organizations across the US, Canada and the UK."
+        ]
+      },
+      "searchbrand": {
+        "media": {
+          "desktop": "Desktop · Brand setup, analysis and dashboard",
+          "mobile": "Mobile · Brand setup and insights",
+          "marquee": "Product overview · Mobile screens"
+        },
+        "name": "AI Brand Visibility",
+        "description": [
+          "Searchbrand.AI helps brands understand and improve how they show up in AI search and LLM answers."
+        ]
+      },
+      "socratia": {
+        "media": {
+          "journey": "Learning journey · Class, exercises and practice",
+          "talk": "Voice class · Learning out loud with Delfí",
+          "moods": "Delfí · Character moods and reactions"
+        },
+        "name": "AI Learning Companion",
+        "description": [
+          "Socratia is an AI tutor that teaches through questions rather than answers."
+        ]
+      },
+      "audioswitch": {
+        "media": {
+          "switcher": "Switcher · Outputs and inputs from the keyboard",
+          "settings": "Settings · Custom shortcut"
+        },
+        "name": "Native macOS App",
+        "description": [
+          "AudioSwitch is a native macOS menu-bar app, written in Swift, that switches audio outputs and inputs from the keyboard. Hold Space, tap Tab to cycle devices and release to switch, just like ⌘Tab for apps."
+        ]
+      },
+      "betterfly": {
+        "media": {
+          "home-standard": "Home · Healthy habits and challenges",
+          "onboarding": "Onboarding · From welcome to registration",
+          "design-system": "Design system · Challenge components"
+        },
+        "name": "Wellness & Insurance App",
+        "description": [
+          "Betterfly turns healthy habits into life-insurance coverage and social donations."
+        ]
+      }
     }
   }
-} 
+}
