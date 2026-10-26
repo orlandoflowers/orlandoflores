@@ -176,39 +176,50 @@
   "developer": {
     "title": "Soy Ingeniero de Software",
     "headline": "Puedo construir cosas",
-    "intro": "Llevo productos de un repositorio vacío a producción: frontend, backend, datos e IA, y apps nativas cuando el producto lo pide.",
+    "intro": "Construyo productos de punta a punta, desde entender el problema con quienes lo tienen hasta operarlo en producción. Me importa tanto que sea bueno como que funcione.",
     "builds": {
       "title": "Construido recientemente",
       "searchbrand": {
         "title": "SaaS de monitoreo de marca multi-LLM",
-        "body": "Un monorepo con Turborepo: una app en Next.js, un core de dominio tipado sobre Drizzle y PostgreSQL, y workers en Hono sobre Cloud Run que consultan Gemini, OpenAI, Anthropic y Perplexity mediante colas asíncronas."
+        "body": "Un monorepo con Turborepo: una app en Next.js, un core de dominio tipado sobre Drizzle y PostgreSQL, y workers en Hono sobre Cloud Run que consultan Gemini, OpenAI, Anthropic y Perplexity mediante colas asíncronas.",
+        "owned": "Construido y operado de punta a punta · +500 clientes"
       },
       "socratia": {
         "title": "Tutor de IA con clases por voz",
-        "body": "Una app en Next.js y Supabase que enseña con preguntas en vez de respuestas, con conversaciones impulsadas por Claude y tests end-to-end en Playwright."
+        "body": "Una app en Next.js y Supabase que enseña con preguntas en vez de respuestas, con conversaciones impulsadas por Claude y tests end-to-end en Playwright.",
+        "owned": "Construido y operado de punta a punta · 100 estudiantes"
       },
       "audioswitch": {
         "title": "Utilidad nativa para macOS",
-        "body": "Una app de barra de menús en Swift que cambia los dispositivos de audio con un atajo estilo ⌘Tab, construida sobre CoreAudio, AppKit y SwiftUI, sin dependencias."
+        "body": "Una app de barra de menús en Swift que cambia los dispositivos de audio con un atajo estilo ⌘Tab, construida sobre CoreAudio, AppKit y SwiftUI, sin dependencias.",
+        "owned": "Diseñado, construido y lanzado en solitario"
       }
     },
     "principles": {
       "title": "Cómo trabajo",
-      "loop": {
-        "title": "Diseño y código en un mismo ciclo",
-        "body": "Prototipo en código, así las decisiones de diseño se enfrentan temprano a datos y restricciones reales, no en el handoff."
+      "product": {
+        "title": "Primero, sentido de producto",
+        "body": "Tengo opiniones sobre qué hace bueno a un producto, más allá de que el código pase. Prototipo en código para que esas opiniones choquen temprano con datos reales."
+      },
+      "owner": {
+        "title": "Dueño de punta a punta",
+        "body": "Desde la primera conversación sobre el problema hasta arreglar lo que los usuarios encuentran en producción. Mucha autonomía, poca burocracia."
       },
       "typed": {
         "title": "De React a Python, o en modo Swiftie",
         "body": "Web, backend o nativo: tomo lo que el producto necesita y soy productivo rápido, ya sea TypeScript y React, servicios en Python o Swift para Apple."
       },
       "ship": {
-        "title": "Entregas pequeñas y frecuentes",
-        "body": "Desarrollo, staging, producción. Releases pequeños vía CI, medidos y luego iterados."
+        "title": "Entregas pequeñas, decisiones rápidas",
+        "body": "Decido con lo que sabemos, libero en pasos pequeños vía CI, mido y hago seguimiento sin que nadie tenga que perseguirlo."
+      },
+      "users": {
+        "title": "Cerca de usuarios y del negocio",
+        "body": "Me encanta recibir feedback de clientes y entender el lado de negocio de un problema. La confiabilidad, la documentación y arreglar lo que está fuera de mi ticket son parte del trabajo."
       },
       "ai": {
-        "title": "IA dentro del producto",
-        "body": "LLMs, voz y workers en segundo plano conectados a flujos reales del producto, con colas, reintentos y seguimiento de uso. No demos."
+        "title": "Nativo en IA, con fundamentos",
+        "body": "La IA escribe, revisa y prueba código conmigo todos los días. Igual leo, depuro y me hago responsable de todo lo que sale a producción."
       }
     },
     "stack": {
@@ -221,9 +232,40 @@
       "quality": "Testing"
     },
     "cta": {
-      "title": "¿Tienes algo que construir?",
-      "body": "Desde un primer prototipo hasta un sistema en producción, puedo hacerme cargo de punta a punta.",
+      "title": "¿Buscas a alguien que se haga cargo?",
+      "body": "Un equipo pequeño, usuarios reales y problemas que valen la pena: ahí es donde hago mi mejor trabajo.",
       "work": "Ver proyectos"
+    },
+    "checks": {
+      "label": "Lo que aporto",
+      "product": "Producto + ingeniería",
+      "owner": "Dueño de punta a punta",
+      "ai": "IA en el día a día",
+      "ships": "Llevo a producción",
+      "remote": "Remoto, entre zonas horarias"
+    },
+    "proof": {
+      "title": "En producción",
+      "searchbrand": "clientes en una plataforma de visibilidad en IA que construí y opero",
+      "socratia": "estudiantes usando un tutor de IA que construí",
+      "ifert": "sensores de agua monitoreados en vivo, con alertas",
+      "audienceview": "países donde recintos venden entradas con un checkout que diseñé"
+    },
+    "aiFlow": {
+      "title": "Construyendo con IA, todos los días",
+      "intro": "La IA es parte de cómo trabajo, no un experimento aparte. Permite que una persona avance como un equipo, sin bajar la vara.",
+      "build": {
+        "title": "Construir",
+        "body": "Trabajo en pareja con agentes de IA para explorar ideas, armar funcionalidades y refactorizar, y luego leo y pruebo lo que escriben."
+      },
+      "review": {
+        "title": "Revisar",
+        "body": "Cada pull request pasa por una revisión automática con IA en el pipeline, que detecta bugs y casos borde antes de que lo mire una persona."
+      },
+      "ship": {
+        "title": "Desplegar",
+        "body": "Pipelines de CI/CD prueban, compilan y despliegan en cada merge, para que equipos pequeños entreguen seguido sin rituales de release."
+      }
     }
   },
   "portfolio": {

@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next"
 import { contactHref } from "@/lib/contact"
 import { Link } from "react-router-dom"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Check, GitPullRequest, Rocket, Sparkles } from "lucide-react"
 import { NextPageLink } from "@/components/next-page-link"
 import { isCommission } from "@/data/projects"
 
@@ -29,7 +29,24 @@ const builds = [
   },
 ]
 
-const principles = ["loop", "typed", "ship", "ai"] as const
+// Quick, skimmable "what I bring" checklist under the hero
+const checks = ["product", "owner", "ai", "ships", "remote"] as const
+
+// Real usage numbers; labels live in developer.proof.<id>
+const proof = [
+  { id: "searchbrand", value: "500+" },
+  { id: "socratia", value: "100" },
+  { id: "ifert", value: "100+" },
+  { id: "audienceview", value: "3" },
+] as const
+
+const principles = ["product", "owner", "typed", "ship", "users", "ai"] as const
+
+const aiFlow = [
+  { id: "build", icon: Sparkles },
+  { id: "review", icon: GitPullRequest },
+  { id: "ship", icon: Rocket },
+] as const
 
 // Tool names stay untranslated
 const stack: { group: string; items: string[] }[] = [
@@ -56,6 +73,11 @@ export function DeveloperPage() {
         </p>
         <h1 className="pf-h1">{t("developer.headline")}</h1>
         <p className="pf-lead mt-6 mx-auto max-w-[560px]">{t("developer.intro")}</p>
+        <ul className="mt-8 flex flex-wrap justify-center gap-2" aria-label={t("developer.checks.label")}>
+          {checks.map((c) => (
+            <li key={c} className="pf-check"><Check size={14} aria-hidden="true" />{t(`developer.checks.${c}`)}</li>
+          ))}
+        </ul>
       </header>
 
       <section className="pf-reveal mt-24 md:mt-32">
@@ -70,6 +92,7 @@ export function DeveloperPage() {
               </p>
               <h3 className="pf-card-title mt-2 !text-[17px]">{t(`developer.builds.${b.id}.title`)}</h3>
               <p className="pf-lead mt-3 !text-[15px] flex-1">{t(`developer.builds.${b.id}.body`)}</p>
+              <p className="pf-meta mt-4">{t(`developer.builds.${b.id}.owned`)}</p>
               <ul className="mt-6 flex flex-wrap gap-1.5" aria-label={t("developer.stack.title")}>
                 {b.stack.map((s) => <li key={s} className="pf-tag">{s}</li>)}
               </ul>
@@ -80,13 +103,39 @@ export function DeveloperPage() {
       </section>
 
       <section className="pf-reveal mt-24 md:mt-32">
+        <h2 className="pf-h3 mb-8">{t("developer.proof.title")}</h2>
+        <ul className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          {proof.map((p) => (
+            <li key={p.id} className="pf-card p-6 md:p-7">
+              <span className="pf-h3 block tabular-nums">{p.value}</span>
+              <span className="pf-lead mt-2 block !text-[14px] !leading-snug">{t(`developer.proof.${p.id}`)}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="pf-reveal mt-24 md:mt-32">
         <h2 className="pf-h3 mb-8">{t("developer.principles.title")}</h2>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {principles.map((p, i) => (
             <div key={p} className="pf-card p-6 md:p-7">
               <p className="pf-eyebrow tabular-nums">0{i + 1}</p>
               <h3 className="pf-card-title mt-2 !text-[17px]">{t(`developer.principles.${p}.title`)}</h3>
               <p className="pf-lead mt-2 !text-[15px]">{t(`developer.principles.${p}.body`)}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="pf-reveal mt-24 md:mt-32">
+        <h2 className="pf-h3">{t("developer.aiFlow.title")}</h2>
+        <p className="pf-lead mt-2 mb-8 max-w-[56ch]">{t("developer.aiFlow.intro")}</p>
+        <div className="grid gap-4 md:grid-cols-3">
+          {aiFlow.map(({ id, icon: Icon }) => (
+            <div key={id} className="pf-card p-6 md:p-7">
+              <span className="pf-round" aria-hidden="true"><Icon size={18} /></span>
+              <h3 className="pf-card-title mt-5 !text-[17px]">{t(`developer.aiFlow.${id}.title`)}</h3>
+              <p className="pf-lead mt-2 !text-[15px]">{t(`developer.aiFlow.${id}.body`)}</p>
             </div>
           ))}
         </div>

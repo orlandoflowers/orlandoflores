@@ -176,39 +176,50 @@
   "developer": {
     "title": "I'm a Software Engineer",
     "headline": "I can build things",
-    "intro": "I take products from an empty repo to production: frontend, backend, data and AI, plus native apps when the product calls for one.",
+    "intro": "I build products end to end, from understanding the problem with the people who have it to running the result in production. I care as much about whether it's good as whether it works.",
     "builds": {
       "title": "Built recently",
       "searchbrand": {
         "title": "Multi-LLM brand monitoring SaaS",
-        "body": "A Turborepo monorepo: a Next.js app, a typed domain core on Drizzle and PostgreSQL, and Hono workers on Cloud Run that query Gemini, OpenAI, Anthropic and Perplexity through async queues."
+        "body": "A Turborepo monorepo: a Next.js app, a typed domain core on Drizzle and PostgreSQL, and Hono workers on Cloud Run that query Gemini, OpenAI, Anthropic and Perplexity through async queues.",
+        "owned": "Built and run end to end · 500+ clients"
       },
       "socratia": {
         "title": "AI tutor with voice classes",
-        "body": "A Next.js and Supabase app that teaches through questions instead of answers, with Claude-powered conversations and end-to-end tests in Playwright."
+        "body": "A Next.js and Supabase app that teaches through questions instead of answers, with Claude-powered conversations and end-to-end tests in Playwright.",
+        "owned": "Built and run end to end · 100 learners"
       },
       "audioswitch": {
         "title": "Native macOS utility",
-        "body": "A menu-bar app in Swift that switches audio devices with a ⌘Tab-style shortcut, built on CoreAudio, AppKit and SwiftUI with zero dependencies."
+        "body": "A menu-bar app in Swift that switches audio devices with a ⌘Tab-style shortcut, built on CoreAudio, AppKit and SwiftUI with zero dependencies.",
+        "owned": "Designed, built and shipped solo"
       }
     },
     "principles": {
       "title": "How I work",
-      "loop": {
-        "title": "Design and code in one loop",
-        "body": "I prototype in code, so design decisions meet real data and real constraints early, not at handoff."
+      "product": {
+        "title": "Product sense first",
+        "body": "I have opinions about what makes a product good, beyond whether the code passes. I prototype in code so those opinions meet real data early."
+      },
+      "owner": {
+        "title": "Own it end to end",
+        "body": "From the first call about the problem to fixing what users hit in production. Lots of ownership, very little ceremony."
       },
       "typed": {
         "title": "I can React to Python, or just get Swiftie",
         "body": "Web, backend or native, I pick up whatever the product needs and get productive fast: TypeScript and React, Python services, or Swift for Apple platforms."
       },
       "ship": {
-        "title": "Ship small, ship often",
-        "body": "Development, staging, production. Small releases through CI, measured, then iterated."
+        "title": "Ship small, decide fast",
+        "body": "I make the call with what we know, release in small steps through CI, measure, and follow through without anyone chasing it."
+      },
+      "users": {
+        "title": "Close to users and the business",
+        "body": "I love getting feedback from clients and understanding the business side of a problem. Reliability, docs and fixing what's outside my ticket come with the job."
       },
       "ai": {
-        "title": "AI inside the product",
-        "body": "LLMs, voice and background workers wired into real product flows, with queues, retries and usage tracking. Not demos."
+        "title": "AI-native, fundamentals-first",
+        "body": "AI writes, reviews and tests code with me every day. I still read, debug and take responsibility for everything that ships."
       }
     },
     "stack": {
@@ -221,9 +232,40 @@
       "quality": "Testing"
     },
     "cta": {
-      "title": "Have something to build?",
-      "body": "From a first prototype to a production system, I can own it end to end.",
+      "title": "Looking for someone to own it?",
+      "body": "A small team, real users and problems worth solving: that's where I do my best work.",
       "work": "See the work"
+    },
+    "checks": {
+      "label": "What I bring",
+      "product": "Product + engineering",
+      "owner": "Owns it end to end",
+      "ai": "AI in the daily loop",
+      "ships": "Ships to production",
+      "remote": "Remote, across time zones"
+    },
+    "proof": {
+      "title": "Shipped and running",
+      "searchbrand": "clients on an AI visibility platform I built and run",
+      "socratia": "learners using an AI tutor I built",
+      "ifert": "water sensors monitored live, with alerts",
+      "audienceview": "countries where venues sell tickets through a checkout I designed"
+    },
+    "aiFlow": {
+      "title": "Building with AI, every day",
+      "intro": "AI is part of how I work, not a side experiment. It lets one person move like a team, without lowering the bar.",
+      "build": {
+        "title": "Build",
+        "body": "I pair with AI agents to explore ideas, scaffold features and refactor, then read and test what they write."
+      },
+      "review": {
+        "title": "Review",
+        "body": "Every pull request gets an automated AI review in the pipeline, catching bugs and edge cases before a human looks."
+      },
+      "ship": {
+        "title": "Ship",
+        "body": "CI/CD pipelines test, build and deploy on every merge, so small teams ship often without a release ritual."
+      }
     }
   },
   "portfolio": {

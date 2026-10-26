@@ -277,7 +277,7 @@
 .sq-native { --radius-2xl: var(--sq-card); --radius: 0.9rem; }
 .sq-native .pf-card { border-radius: var(--sq-card); }
 .sq-native .pf-tag { border-radius: var(--sq-tag); }
-.sq-native :is(.rounded-full, .pf-btn, .pf-chip, .pf-round, .pf-dot) { corner-shape: superellipse(1.3); }
+.sq-native :is(.rounded-full, .pf-btn, .pf-chip, .pf-check, .pf-round, .pf-dot) { corner-shape: superellipse(1.3); }
 
 /* Safari 18.4+ (and other browsers with CSS shape()): clip to a squircle outline built
    from cubic corners, so it adapts to any size without distortion. Capsules use their
@@ -286,5 +286,6 @@
 .sq-shape .rounded-md, .sq-shape .rounded-sm { border-radius: 0; clip-path: shape(from var(--sq-small) 0, hline to calc(100% - var(--sq-small)), curve to 100% var(--sq-small) with calc(100% - calc(var(--sq-small) * 0.24)) 0 / 100% calc(var(--sq-small) * 0.24), vline to calc(100% - var(--sq-small)), curve to calc(100% - var(--sq-small)) 100% with 100% calc(100% - calc(var(--sq-small) * 0.24)) / calc(100% - calc(var(--sq-small) * 0.24)) 100%, hline to var(--sq-small), curve to 0 calc(100% - var(--sq-small)) with calc(var(--sq-small) * 0.24) 100% / 0 calc(100% - calc(var(--sq-small) * 0.24)), vline to var(--sq-small), curve to var(--sq-small) 0 with 0 calc(var(--sq-small) * 0.24) / calc(var(--sq-small) * 0.24) 0, close); }
 .sq-shape .pf-btn, .sq-shape .pf-round { border-radius: 0; clip-path: shape(from 20px 0, hline to calc(100% - 20px), curve to 100% 20px with calc(100% - calc(20px * 0.36)) 0 / 100% calc(20px * 0.36), vline to calc(100% - 20px), curve to calc(100% - 20px) 100% with 100% calc(100% - calc(20px * 0.36)) / calc(100% - calc(20px * 0.36)) 100%, hline to 20px, curve to 0 calc(100% - 20px) with calc(20px * 0.36) 100% / 0 calc(100% - calc(20px * 0.36)), vline to 20px, curve to 20px 0 with 0 calc(20px * 0.36) / calc(20px * 0.36) 0, close); }
 .sq-shape .pf-chip { border-radius: 0; clip-path: shape(from 16px 0, hline to calc(100% - 16px), curve to 100% 16px with calc(100% - calc(16px * 0.36)) 0 / 100% calc(16px * 0.36), vline to calc(100% - 16px), curve to calc(100% - 16px) 100% with 100% calc(100% - calc(16px * 0.36)) / calc(100% - calc(16px * 0.36)) 100%, hline to 16px, curve to 0 calc(100% - 16px) with calc(16px * 0.36) 100% / 0 calc(100% - calc(16px * 0.36)), vline to 16px, curve to 16px 0 with 0 calc(16px * 0.36) / calc(16px * 0.36) 0, close); }
+.sq-shape .pf-check { border-radius: 0; clip-path: shape(from 15px 0, hline to calc(100% - 15px), curve to 100% 15px with calc(100% - calc(15px * 0.36)) 0 / 100% calc(15px * 0.36), vline to calc(100% - 15px), curve to calc(100% - 15px) 100% with 100% calc(100% - calc(15px * 0.36)) / calc(100% - calc(15px * 0.36)) 100%, hline to 15px, curve to 0 calc(100% - 15px) with calc(15px * 0.36) 100% / 0 calc(100% - calc(15px * 0.36)), vline to 15px, curve to 15px 0 with 0 calc(15px * 0.36) / calc(15px * 0.36) 0, close); }
 /* A clip-path also clips outlines drawn outside the box, so draw focus rings inside */
 .sq-shape :is(.rounded-2xl, .rounded-md, .rounded-sm, .pf-card, .pf-btn, .pf-chip, .pf-round):focus-visible { outline-offset: -2px; }

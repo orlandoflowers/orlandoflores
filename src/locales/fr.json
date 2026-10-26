@@ -174,39 +174,50 @@
   "developer": {
     "title": "Je suis Ingénieur Logiciel",
     "headline": "Je peux construire des choses",
-    "intro": "J’amène des produits d’un dépôt vide jusqu’à la production : frontend, backend, données et IA, et des apps natives quand le produit l’exige.",
+    "intro": "Je construis des produits de bout en bout, de la compréhension du problème avec ceux qui le vivent jusqu’à leur exploitation en production. Je tiens autant à ce qu’ils soient bons qu’à ce qu’ils fonctionnent.",
     "builds": {
       "title": "Réalisé récemment",
       "searchbrand": {
         "title": "SaaS de suivi de marque multi-LLM",
-        "body": "Un monorepo Turborepo : une app Next.js, un cœur métier typé sur Drizzle et PostgreSQL, et des workers Hono sur Cloud Run qui interrogent Gemini, OpenAI, Anthropic et Perplexity via des files asynchrones."
+        "body": "Un monorepo Turborepo : une app Next.js, un cœur métier typé sur Drizzle et PostgreSQL, et des workers Hono sur Cloud Run qui interrogent Gemini, OpenAI, Anthropic et Perplexity via des files asynchrones.",
+        "owned": "Construit et exploité de bout en bout · 500+ clients"
       },
       "socratia": {
         "title": "Tuteur IA avec cours vocaux",
-        "body": "Une app Next.js et Supabase qui enseigne par les questions plutôt que par les réponses, avec des conversations propulsées par Claude et des tests end-to-end avec Playwright."
+        "body": "Une app Next.js et Supabase qui enseigne par les questions plutôt que par les réponses, avec des conversations propulsées par Claude et des tests end-to-end avec Playwright.",
+        "owned": "Construit et exploité de bout en bout · 100 élèves"
       },
       "audioswitch": {
         "title": "Utilitaire macOS natif",
-        "body": "Une app de barre des menus en Swift qui change de périphérique audio avec un raccourci façon ⌘Tab, construite sur CoreAudio, AppKit et SwiftUI, sans dépendances."
+        "body": "Une app de barre des menus en Swift qui change de périphérique audio avec un raccourci façon ⌘Tab, construite sur CoreAudio, AppKit et SwiftUI, sans dépendances.",
+        "owned": "Conçu, développé et publié en solo"
       }
     },
     "principles": {
       "title": "Ma façon de travailler",
-      "loop": {
-        "title": "Design et code dans la même boucle",
-        "body": "Je prototype en code : les décisions de design rencontrent tôt les vraies données et les vraies contraintes, pas au moment du handoff."
+      "product": {
+        "title": "Le sens produit d’abord",
+        "body": "J’ai un avis sur ce qui rend un produit bon, au-delà du code qui passe. Je prototype en code pour confronter tôt ces avis aux vraies données."
+      },
+      "owner": {
+        "title": "Responsable de bout en bout",
+        "body": "Du premier échange sur le problème à la correction de ce que les utilisateurs rencontrent en production. Beaucoup d’autonomie, très peu de bureaucratie."
       },
       "typed": {
         "title": "De React à Python, ou en mode Swiftie",
         "body": "Web, backend ou natif : je prends en main ce dont le produit a besoin et deviens vite productif, que ce soit TypeScript et React, des services Python ou Swift pour Apple."
       },
       "ship": {
-        "title": "Livrer petit, livrer souvent",
-        "body": "Développement, staging, production. De petites releases via la CI, mesurées, puis itérées."
+        "title": "Livrer petit, décider vite",
+        "body": "Je tranche avec ce que l’on sait, je livre par petites étapes via la CI, je mesure et je vais au bout sans qu’on ait à me relancer."
+      },
+      "users": {
+        "title": "Proche des utilisateurs et du business",
+        "body": "J’aime recueillir les retours des clients et comprendre l’enjeu business d’un problème. La fiabilité, la documentation et ce qui dépasse mon ticket font partie du travail."
       },
       "ai": {
-        "title": "L’IA au cœur du produit",
-        "body": "LLM, voix et workers en arrière-plan intégrés aux vrais parcours produit, avec files, reprises et suivi d’usage. Pas des démos."
+        "title": "IA native, fondamentaux solides",
+        "body": "L’IA écrit, relit et teste du code avec moi chaque jour. Je lis, débogue et assume quand même tout ce qui part en production."
       }
     },
     "stack": {
@@ -219,9 +230,40 @@
       "quality": "Tests"
     },
     "cta": {
-      "title": "Un projet à construire ?",
-      "body": "Du premier prototype au système en production, je peux le porter de bout en bout.",
+      "title": "Vous cherchez quelqu’un qui s’en charge ?",
+      "body": "Une petite équipe, de vrais utilisateurs et des problèmes qui en valent la peine : c’est là que je fais mon meilleur travail.",
       "work": "Voir les projets"
+    },
+    "checks": {
+      "label": "Ce que j’apporte",
+      "product": "Produit + ingénierie",
+      "owner": "Responsable de bout en bout",
+      "ai": "L’IA au quotidien",
+      "ships": "Mise en production",
+      "remote": "À distance, sur plusieurs fuseaux"
+    },
+    "proof": {
+      "title": "Livré et en production",
+      "searchbrand": "clients sur une plateforme de visibilité IA que j’ai construite et que j’exploite",
+      "socratia": "élèves utilisant un tuteur IA que j’ai construit",
+      "ifert": "capteurs d’eau surveillés en direct, avec alertes",
+      "audienceview": "pays où des salles vendent leurs billets via un checkout que j’ai conçu"
+    },
+    "aiFlow": {
+      "title": "Construire avec l’IA, chaque jour",
+      "intro": "L’IA fait partie de ma façon de travailler, pas d’une expérience à côté. Elle permet à une personne d’avancer comme une équipe, sans baisser l’exigence.",
+      "build": {
+        "title": "Construire",
+        "body": "Je travaille en binôme avec des agents IA pour explorer des idées, poser des fonctionnalités et refactorer, puis je relis et teste ce qu’ils écrivent."
+      },
+      "review": {
+        "title": "Relire",
+        "body": "Chaque pull request passe par une revue IA automatique dans le pipeline, qui repère bugs et cas limites avant qu’un humain ne la lise."
+      },
+      "ship": {
+        "title": "Livrer",
+        "body": "Des pipelines CI/CD testent, compilent et déploient à chaque merge, pour que de petites équipes livrent souvent sans rituel de release."
+      }
     }
   },
   "portfolio": {
